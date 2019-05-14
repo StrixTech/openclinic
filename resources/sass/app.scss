@@ -1,0 +1,79 @@
+/*------------------------------------------------------------------
+[Master Stylesheet]
+
+Project:    Paper Panel
+Version:    1.0.8
+
+-------------------------------------------------------------------*/
+
+/*------------------------------------------------------------------
+[Table of contents]
+1. All common core files (Variables / colors / bootstrap )
+2- Plugins
+3- Panel Components
+-------------------------------------------------------------------*/
+
+/*------------------------------------------------------------------
+[1. All common core files]
+*/
+
+@import "common.scss";
+
+/*------------------------------------------------------------------
+[2. Plugins]
+*/
+
+// Trumbowyg Editor
+@import "~trumbowyg/dist/ui/trumbowyg.min";
+// Morris Charts
+@import "~morris-js-module/morris";
+// Dropzone File Uploader
+@import "~dropzone/dist/dropzone";
+// Date Time Picker
+@import "~jquery-datetimepicker/jquery.datetimepicker";
+// Full Calendar
+@import "~fullcalendar/dist/fullcalendar";
+// Color Picker
+@import "~bootstrap-colorpicker/dist/css/bootstrap-colorpicker";
+// Range Slider
+@import "~ion-rangeslider/css/ion.rangeSlider";
+//JVQ Map
+@import "components/jqvmap";
+// Stepper
+@import "components/stepper";
+// Toast
+@import "~toastr/toastr";
+// Avatar Placeholder
+@import "libs/letters";
+//Date Tables
+@import "~datatables.net-bs4/css/dataTables.bootstrap4";
+//LobiList TaskTodo
+@import "components/lobilist";
+/*------------------------------------------------------------------
+[3. Panel Components]
+*/
+
+@import "components/_forms";
+@import "components/_forms-material";
+@import "components/sidebarMenu";
+@import "components/shortcodes";
+@import "components/promotionsBar";
+@import "components/services";
+@import "components/sticky";
+@import "components/knob";
+@import "components/counter";
+@import "components/bootstrap-tagsinput";
+@import "components/select2";
+@import "components/nav";
+@import "components/control-sidebar";
+@import "components/chat";
+@import "components/todo";
+@import "components/timeline";
+@import "components/preloaders";
+@import "components/activity";
+@import "components/box";
+@import "components/attachments";
+@import "components/plugins";
+@import "components/easy-pie-chart";
+@import "basic/theme-dark";
+@import "basic/rtl";
