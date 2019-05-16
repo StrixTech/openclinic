@@ -32,7 +32,9 @@ Version:    1.0.8
 // Date Time Picker
 @import "~jquery-datetimepicker/jquery.datetimepicker";
 // Full Calendar
-@import "~fullcalendar/dist/fullcalendar";
+@import "~@fullcalendar/core/main.css";
+@import "~@fullcalendar/daygrid/main.css";
+@import "~@fullcalendar/timegrid/main.css";
 // Color Picker
 @import "~bootstrap-colorpicker/dist/css/bootstrap-colorpicker";
 // Range Slider

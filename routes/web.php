@@ -18,3 +18,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::group(['middleware' => ['permission:appointments']], function () {
+    //Route::get('/appointments', 'AppointmentsController@index');
+    Route::resource('appointments', 'AppointmentsController');
+});
+

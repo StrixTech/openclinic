@@ -33,8 +33,11 @@
         }
     </style>
 
-    <!-- JS -->
-    <script src="{{ mix('/js/app.js') }}"></script>
+    <!--
+    --- Head Part - Use Jquery anywhere at page.
+    --- http://writing.colin-gourlay.com/safely-using-ready-before-including-jquery/
+    -->
+    <script>(function(w,d,u){w.readyQ=[];w.bindReadyQ=[];function p(x,y){if(x=="ready"){w.bindReadyQ.push(y);}else{w.readyQ.push(x);}};var a={ready:p,bind:p};w.$=w.jQuery=function(f){if(f===d||f===u){return a}else{p(f)}}})(window,document)</script>
 </head>
 <body class="light @auth sidebar-mini sidebar-collapse sidebar-expanded-on-hover @endauth">
     <!-- Pre loader -->
@@ -92,5 +95,14 @@
             @yield('content')
         </main>
     </div>
+
+    <!-- JS -->
+    <script src="{{ mix('/js/app.js') }}"></script>
+
+    <!--
+    --- Footer Part - Use Jquery anywhere at page.
+    --- http://writing.colin-gourlay.com/safely-using-ready-before-including-jquery/
+    -->
+    <script>(function($,d){$.each(readyQ,function(i,f){$(f)});$.each(bindReadyQ,function(i,f){$(d).bind("ready",f)})})(jQuery,document)</script>
 </body>
 </html>
