@@ -37,12 +37,14 @@
                                     <i class="icon icon-sailing-boat-water s-24"></i> <span>Dashboard</span>
                                 </a>
                             </li>
-                            @hasanyrole('doctor|superadmin')
+                            @hasanyrole('doctor|admin')
                             <li class="treeview"><a href="#">
                                     <i class="icon icon-sailing-boat-water purple-text s-18"></i> <span>Patients</span> <i
                                         class="icon icon-angle-left s-18 pull-right"></i>
                                 </a>
                                 <ul class="treeview-menu">
+                                    <li><a href="/patients"><i class="icon icon-folder5"></i>Patients</a>
+                                    </li>
                                     <li><a href="/appointments"><i class="icon icon-folder5"></i>Appointments</a>
                                     </li>
                                 </ul>
