@@ -12,6 +12,7 @@
 */
 
 use App\Http\Controllers\AdminController;
+use Illuminate\Http\Request;
 
 Route::get('/', function () {
     return view('welcome');
@@ -33,9 +34,18 @@ Route::group(['middleware' => ['role:admin']], function () {
     //Route::get('/appointments', 'AppointmentsController@index');
     Route::get('admin', 'AdminController@index');
     Route::get('admin/roles', 'AdminController@roles');
+    Route::post('admin/task/create-role', 'AdminController@roleCreate');
+    Route::get('admin/roles/{id}/delete', function ($id) {
+       $admin = new AdminController();
+       return $admin->roleDelete($id);
+    });
     Route::get('admin/roles/{id}', function ($id) {
         $admin = new AdminController();
         return $admin->roleGet($id);
+    });
+    Route::get('admin/roles/{id}/edit', function ($id, Request $request) {
+        $admin = new AdminController();
+        return $admin->roleEdit($request, $id);
     });
 });
 

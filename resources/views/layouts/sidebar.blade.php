@@ -56,8 +56,8 @@
                                         class="icon icon-angle-left s-18 pull-right"></i>
                                 </a>
                                 <ul class="treeview-menu">
-                                    <li><a href="/admin"><i class="icon icon-folder5"></i>Home</a>
-                                    </li>
+                                    <li><a href="/admin"><i class="icon icon-folder5"></i>Home</a></li>
+                                    <li><a href="/admin/roles"><i class="icon icon-folder5"></i>Roles</a></li>
                                 </ul>
                             </li>
                             @endhasanyrole

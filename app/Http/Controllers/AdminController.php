@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Staff;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Redirect;
+use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 
 class AdminController extends Controller
@@ -105,7 +107,54 @@ class AdminController extends Controller
      */
     public function roleGet($id){
         $role = Role::findById($id);
+        $permissions = Permission::all();
 
-        return view('admin.adminRoleInfo',['role'=>$role]);
+        return view('admin.adminRoleEdit',['role'=>$role, 'permissions'=>$permissions]);
+    }
+
+    public function roleCreate(Request $request){
+        $name = $request->post('name');
+
+        Role::create(['name' => $name]);
+        $html = view('admin.adminRoleShowTable', ['roles'=>Role::all()])->render();
+
+        return response()->json(['success'=>true,'name'=>$name,'html'=>$html]);
+    }
+
+    public function roleDelete($id){
+        $role = Role::findById($id);
+        $role->delete();
+
+        return \redirect()->back()->with('toast_success','Role deleted.');
+    }
+
+    /**
+     * Edit a role
+     *
+     * @param Request $request
+     * @param $id
+     * @return \Illuminate\Http\Response
+     */
+    public function roleEdit(Request $request, $id){
+        $role = Role::findById($id);
+
+        if($role->name === 'admin'){
+            $role->syncPermissions(Permission::all());
+            return redirect()->back();
+        }
+
+        for ($x = 1; $x <= Permission::all()->count(); $x++) {
+            $perm = Permission::findById($x);
+
+            if($request->get($x) === 'on'){
+                $role->givePermissionTo($perm->name);
+            }else{
+                $role->revokePermissionTo($perm->name);
+            }
+        }
+
+        return redirect()->back();
+
+        //var_dump($request->all());
     }
 }

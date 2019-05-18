@@ -87,6 +87,8 @@
         </div>
     </div>
 
+    @include('sweetalert::alert')
+
     <div class="app">
         @auth
             @include('layouts.sidebar')

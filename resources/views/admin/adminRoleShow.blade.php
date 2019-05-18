@@ -22,6 +22,20 @@
             <div class="row my-3">
                 <div class="col-md-3">
                     <div class="card r-0 shadow">
+                        <div class="card-header"><span>Create a role</span></div>
+                        <div class="card-body">
+                            <form method="post" class="form-material">
+                                @csrf
+
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <input name="role-name" type="text" class="form-control" placeholder="Role Name"/>
+                                    </div>
+                                </div>
+
+                                <button class="create-role btn btn-default">Save</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
                 <div class="col-md-9">
@@ -36,9 +50,9 @@
                                     </tr>
                                     </thead>
 
-                                    <tbody>
-                                        @foreach($roles as $role)
-                                        <tr>
+                                    <tbody class="table-content">
+                                    @foreach($roles as $role)
+                                        <tr id="row-{{$role->id}}">
                                             <td>
                                                 <div>
                                                     <div>
@@ -47,11 +61,11 @@
                                                 </div>
                                             </td>
                                             <td>
-                                                <a class="view-role" data-id="{{$role->id}}"><i class="icon-eye mr-3"></i></a>
-                                                <button data-id="{$role->id}}"><i class="icon-pencil"></i></button>
+                                                <a href="#" class="view-role" data-id="{{$role->id}}"><i class="icon-pencil"></i></a>
+                                                <a href="#" class="delete-role" data-id="{{$role->id}}"><i class="icon-trash"></i></a>
                                             </td>
                                         </tr>
-                                        @endforeach
+                                    @endforeach
                                     </tbody>
                                 </table>
                             </form>
@@ -83,6 +97,59 @@
 
     <script>
         $(document).ready(function() {
+            $('.create-role').click(function(e) {
+                e.preventDefault();
+
+                let name = $("input[name=role-name]").val();
+
+                $.ajax
+                ({
+                    url: '/admin/task/create-role',
+                    type: 'POST',
+                    data: {name: name, "_token": "{{ csrf_token() }}"},
+                    success: function (data) {
+                        const Toast = Swal.mixin({
+                            toast: true,
+                            position: 'top-end',
+                            showConfirmButton: false,
+                            timer: 3000
+                        });
+
+                        Toast.fire({
+                            type: 'success',
+                            title: 'Role created'
+                        })
+                    }
+                }).done(function (data) {
+                    $('.table-content').html(data.html);
+                    //console.log(data);
+                });
+            });
+
+            $('.delete-role').click(function(){
+
+                var role_id = $(this).data('id');
+
+                $.ajax
+                ({
+                    url: '/admin/roles/' + role_id + '/delete',
+                    type: 'GET',
+                }).done(function (data) {
+                    $('#row-'+role_id).remove();
+                    const Toast = Swal.mixin({
+                        toast: true,
+                        position: 'top-end',
+                        showConfirmButton: false,
+                        timer: 3000
+                    });
+
+                    Toast.fire({
+                        type: 'success',
+                        title: 'Role deleted'
+                    })
+                });
+            });
+
             $('.view-role').click(function(){
 
                 var role_id = $(this).data('id');
