@@ -50,6 +50,17 @@
                                 </ul>
                             </li>
                             @endhasanyrole
+                            @hasrole('admin')
+                            <li class="treeview"><a href="#">
+                                    <i class="icon icon-sailing-boat-water purple-text s-18"></i> <span>Admin</span> <i
+                                        class="icon icon-angle-left s-18 pull-right"></i>
+                                </a>
+                                <ul class="treeview-menu">
+                                    <li><a href="/admin"><i class="icon icon-folder5"></i>Home</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            @endhasanyrole
                         </ul>
                     </div>
                     <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">

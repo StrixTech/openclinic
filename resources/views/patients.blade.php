@@ -1,6 +1,20 @@
 @extends('layouts.app')
 
 @section('content')
+    <style>
+        #search-patient-result:not(#search-patient-result:empty){
+            height:10em;overflow: scroll;overflow-x: hidden;
+        }
+
+        #search-patient-result .search-patient-result-item:hover {
+            background-color: #F5F8FA;
+        }
+
+        #search-patient-result .search-patient-result-item span {
+            color: #86939e;
+        }
+    </style>
+
     <a href="#" data-toggle="push-menu" class="paper-nav-toggle left ml-2 fixed">
         <i></i>
     </a>
@@ -22,7 +36,10 @@
             <div class="row my-3">
                 <div class="col-md-3">
                     <div class="card r-0 shadow">
+                        <input id="search-patient" name="search" data-provide="typeahead" type="text" class="form-control" placeholder="Search" autocomplete="off"/>
+                        <ul id="search-patient-result" class="list-group list-group-flush" style="">
 
+                        </ul>
                     </div>
                 </div>
                 <div class="col-md-9">
@@ -38,11 +55,11 @@
                                                     class="custom-control-label" for="checkedAll"></label>
                                             </div>
                                         </th>
-                                        <th>NAME</th>
+                                        <th width="250px">NAME</th>
                                         <th>PHONE</th>
                                         <th>ADDRESS</th>
                                         <th>ROLE</th>
-                                        <th>ACTIONS</th>
+                                        <th width="80px">ACTIONS</th>
                                     </tr>
                                     </thead>
 
@@ -86,4 +103,28 @@
             </div>
         </div>
     </div>
+
+    <script>
+        $(document).ready(function(){
+
+            function fetch_customer_data(query = '')
+            {
+                $.ajax({
+                    url:"{{ url('psearch') }}",
+                    method:'GET',
+                    data:{query:query},
+                    dataType:'json',
+                    success:function(data)
+                    {
+                        $('#search-patient-result').html(data.table);
+                    }
+                })
+            }
+
+            $(document).on('keyup', '#search-patient', function(){
+                let query = $(this).val();
+                fetch_customer_data(query);
+            });
+        });
+    </script>
 @endsection

@@ -11,6 +11,8 @@
 |
 */
 
+use App\Http\Controllers\AdminController;
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -24,5 +26,16 @@ Route::group(['middleware' => ['permission:appointments|patients']], function ()
     Route::resource('appointments', 'AppointmentsController');
     Route::resource('patients', 'PatientsController');
     Route::resource('patients/notes', 'PatientNotesController');
+    Route::get('psearch','PatientsController@search');
+});
+
+Route::group(['middleware' => ['role:admin']], function () {
+    //Route::get('/appointments', 'AppointmentsController@index');
+    Route::get('admin', 'AdminController@index');
+    Route::get('admin/roles', 'AdminController@roles');
+    Route::get('admin/roles/{id}', function ($id) {
+        $admin = new AdminController();
+        return $admin->roleGet($id);
+    });
 });
 

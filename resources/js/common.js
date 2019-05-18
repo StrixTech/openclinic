@@ -5,6 +5,8 @@ require('./components/_preloader');
 
 window.$ = window.jQuery = require('jquery');
 
+window.TableFilter = require('tablefilter');
+
 require('./libs/modernizr');
 
 require('./libs/jquery.easing');

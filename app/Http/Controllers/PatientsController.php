@@ -91,4 +91,38 @@ class PatientsController extends Controller
     {
         //
     }
+
+    public function search(Request $request)
+    {
+        $search = $request->get('query');
+        $output = '';
+        $result = DB::table('patients')->where('mrn','like',$search.'%')->get();
+
+        if($search == ""){
+            $output = "";
+        }else{
+            if($result->count() > 0) {
+                foreach ($result as $row) {
+                    $output .= "<a href='".url('patients')."/".$row->id."'><li class=\"list-group-item search-patient-result-item\">
+                                    <h6 class=\"p-t-10 mb-2\">".$row->name."</h6>
+                                    <span><span class=\"icon-phone\"></span> ".$row->phone." | <span class=\"icon-people\"></span>  ".$row->mrn."</span>
+                                </li></a>";
+                }
+            }
+            else{
+                $output .= "<li class=\"list-group-item\">
+                                    <h6 class=\"p-t-10\">No Patient Found</h6>
+                                    <span>NULL | NULL</span>
+                                </li>";
+            }
+        }
+
+
+        $result = array(
+            'table'  => $output
+        );
+
+        return response()->json($result);
+
+    }
 }
