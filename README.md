@@ -1,5 +1,8 @@
 MyMedic
 ========
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/StrixTech/mymedic.svg)](https://greenkeeper.io/)
+
 > The solution for hospitals and clinics around the world
 
 To run the development environment for this frontend you will need to have [Git](https://git-scm.com/), [Node.js](https://nodejs.org), [Laravel](https://laravel.com) installed.
