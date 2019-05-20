@@ -29,7 +29,7 @@
 
                                 <div class="form-group">
                                     <div class="form-line">
-                                        <input name="role-name" type="text" class="form-control" placeholder="Role Name"/>
+                                        <input name="role-name" type="text" class="form-control" placeholder="Role Name" autocomplete="off"/>
                                     </div>
                                 </div>
 
