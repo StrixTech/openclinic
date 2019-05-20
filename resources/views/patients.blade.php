@@ -58,7 +58,6 @@
                                         <th width="250px">NAME</th>
                                         <th>PHONE</th>
                                         <th>ADDRESS</th>
-                                        <th>ROLE</th>
                                         <th width="80px">ACTIONS</th>
                                     </tr>
                                     </thead>
@@ -87,7 +86,6 @@
                                             </td>
                                             <td>{{$patient->phone}}</td>
                                             <td>{{$patient->address}}</td>
-                                            <td><span class="r-3 badge badge-success ">Administrator</span></td>
                                             <td>
                                                 <a href="/patients/{{$patient->id}}"><i class="icon-eye mr-3"></i></a>
                                                 <a href="/patients/{{$patient->id}}/edit"><i class="icon-pencil"></i></a>
@@ -96,6 +94,8 @@
                                         @endforeach
                                     </tbody>
                                 </table>
+
+                                {{$patients->links()}}
                             </form>
                         </div>
                     </div>

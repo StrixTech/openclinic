@@ -18,7 +18,7 @@ class PatientsController extends Controller
      */
     public function index()
     {
-        $patients = DB::table('patients')->get();
+        $patients = Patients::paginate(10);
 
         return view('patients', ['patients'=>$patients]);
     }
