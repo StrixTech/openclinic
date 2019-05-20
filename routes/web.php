@@ -12,6 +12,7 @@
 */
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\PatientNotesController;
 use Illuminate\Http\Request;
 
 Route::get('/', function () {
@@ -27,7 +28,12 @@ Route::group(['middleware' => ['permission:appointments|patients']], function ()
     Route::resource('appointments', 'AppointmentsController');
     Route::resource('patients', 'PatientsController');
     Route::resource('patients/notes', 'PatientNotesController');
+    Route::get('pnget/{id}', function ($id){
+       $patientNote = new PatientNotesController();
+       return $patientNote->pnget($id);
+    });
     Route::get('psearch','PatientsController@search');
+    Route::get('pnsearch','PatientNotesController@search');
 });
 
 Route::group(['middleware' => ['role:admin']], function () {

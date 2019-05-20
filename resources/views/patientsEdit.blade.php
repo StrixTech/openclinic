@@ -98,6 +98,7 @@
                                     <div class="card">
                                         <div class="card-header white">
                                             <h6>Patient Notes</h6>
+                                            <a href="{{route('notes.create')}}?id={{$patients->id}}" class="btn-fab fab-right-bottom absolute btn-primary text-white shadow2"><i class="icon-add"></i></a>
                                         </div>
                                         <div class="card-body">
                                             <ul class="list-unstyled">
@@ -107,7 +108,7 @@
                                                         <div class="card no-b p-3">
                                                             <div class="">
                                                                 <div class="float-right">
-                                                                    <a href="#" class="btn-fab btn-fab-sm btn-primary r-5">
+                                                                    <a href="#" data-id="{{$note->id}}" class="view-note btn-fab btn-fab-sm btn-primary r-5">
                                                                         <i class="icon-eye p-0"></i>
                                                                     </a>
                                                                     <a href="#" class="btn-fab btn-fab-sm btn-success r-5">
@@ -115,7 +116,7 @@
                                                                     </a>
                                                                 </div>
                                                                 <div class="image mr-3  float-left">
-                                                                    <img class="w-40px" src="assets/img/dummy/u1.png" alt="User Image">
+                                                                    <img class="w-40px" src="{{ Avatar::create($note->id)->toBase64() }}" alt="User Image">
                                                                 </div>
                                                                 <div>
                                                                     <div>
@@ -168,44 +169,6 @@
                                         </div>
                                         <div class="card-body">
 
-                                            <ul class="list-inline mt-3">
-                                                <li class="list-inline-item ">
-                                                    <img src="assets/img/dummy/u13.png" alt="" class="img-responsive w-40px circle mb-3">
-                                                </li>
-                                                <li class="list-inline-item">
-                                                    <img src="assets/img/dummy/u12.png" alt="" class="img-responsive w-40px circle mb-3">
-                                                </li>
-                                                <li class="list-inline-item">
-                                                    <img src="assets/img/dummy/u11.png" alt="" class="img-responsive w-40px circle mb-3">
-                                                </li>
-                                                <li class="list-inline-item">
-                                                    <img src="assets/img/dummy/u10.png" alt="" class="img-responsive w-40px circle mb-3">
-                                                </li>
-                                                <li class="list-inline-item">
-                                                    <img src="assets/img/dummy/u9.png" alt="" class="img-responsive w-40px circle mb-3">
-                                                </li>
-                                                <li class="list-inline-item">
-                                                    <img src="assets/img/dummy/u8.png" alt="" class="img-responsive w-40px circle mb-3">
-                                                </li>
-                                                <li class="list-inline-item ">
-                                                    <img src="assets/img/dummy/u7.png" alt="" class="img-responsive w-40px circle mb-3">
-                                                </li>
-                                                <li class="list-inline-item">
-                                                    <img src="assets/img/dummy/u6.png" alt="" class="img-responsive w-40px circle mb-3">
-                                                </li>
-                                                <li class="list-inline-item">
-                                                    <img src="assets/img/dummy/u5.png" alt="" class="img-responsive w-40px circle mb-3">
-                                                </li>
-                                                <li class="list-inline-item">
-                                                    <img src="assets/img/dummy/u4.png" alt="" class="img-responsive w-40px circle mb-3">
-                                                </li>
-                                                <li class="list-inline-item">
-                                                    <img src="assets/img/dummy/u3.png" alt="" class="img-responsive w-40px circle mb-3">
-                                                </li>
-                                                <li class="list-inline-item">
-                                                    <img src="assets/img/dummy/u2.png" alt="" class="img-responsive w-40px circle mb-3">
-                                                </li>
-                                            </ul>
                                         </div>
                                     </div>
                                 </div>
@@ -216,4 +179,45 @@
             </div>
         </div>
     </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="notesModal" tabindex="-1" role="dialog" aria-labelledby="roleInfoModal" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="roleInfoModalLabel">Note</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div id="notes-modal-content">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $('.view-note').click(function(e) {
+                e.preventDefault();
+
+                let id = $(this).data('id');
+
+                $.ajax
+                ({
+                    url: '/pnget/'+id,
+                    type: 'GET',
+                    dataType: 'json'
+                }).done(function (data) {
+                    $('#notesModal').modal('show')
+                    $('#notes-modal-content').html('');
+                    $('#notes-modal-content').html(data.note);
+                    console.log(data);
+                });
+            });
+        });
+    </script>
 @endsection

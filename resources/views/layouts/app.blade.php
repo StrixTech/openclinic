@@ -100,6 +100,7 @@
 
     <!-- JS -->
     <script src="{{ mix('/js/app.js') }}"></script>
+    <script src="/vendor/tinymce/tinymce.min.js"></script>
 
     <!--
     --- Footer Part - Use Jquery anywhere at page.
