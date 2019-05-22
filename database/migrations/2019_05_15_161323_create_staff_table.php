@@ -24,6 +24,7 @@ class CreateStaffTable extends Migration
             $table->integer('role')->unsigned();
             $table->timestamps();
 
+            $table->foreign('name')->references('name')->on('users');
             $table->foreign('role')->references('id')->on('roles');
             $table->foreign('department')->references('id')->on('departments');
         });
