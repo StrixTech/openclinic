@@ -33,12 +33,12 @@ Route::group(['middleware' => ['permission:appointments|patients']], function ()
        return $patientNote->pnget($id);
     });
     Route::get('psearch','PatientsController@search');
-    Route::get('pnsearch','PatientNotesController@search');
 });
 
 Route::group(['middleware' => ['role:admin']], function () {
     //Route::get('/appointments', 'AppointmentsController@index');
     Route::get('admin', 'AdminController@index');
+
     Route::get('admin/roles', 'AdminController@roles');
     Route::post('admin/task/create-role', 'AdminController@roleCreate');
     Route::get('admin/roles/{id}/delete', function ($id) {
@@ -53,5 +53,8 @@ Route::group(['middleware' => ['role:admin']], function () {
         $admin = new AdminController();
         return $admin->roleEdit($request, $id);
     });
+
+    Route::resource('admin/staff', 'StaffController');
+    Route::get('assearch','StaffController@search');
 });
 

@@ -58,6 +58,7 @@
                                 <ul class="treeview-menu">
                                     <li><a href="/admin"><i class="icon icon-folder5"></i>Home</a></li>
                                     <li><a href="/admin/roles"><i class="icon icon-folder5"></i>Roles</a></li>
+                                    <li><a href="{{route('staff.index')}}"><i class="icon icon-folder5"></i>Staff</a></li>
                                 </ul>
                             </li>
                             @endhasanyrole
