@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Appointments;
 use App\PatientNotes;
 use App\Patients;
-use DebugBar\DebugBar;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -20,7 +19,7 @@ class PatientsController extends Controller
     {
         $patients = Patients::paginate(10);
 
-        return view('patients', ['patients'=>$patients]);
+        return view('patients.patients', ['patients'=>$patients]);
     }
 
     /**
@@ -55,7 +54,8 @@ class PatientsController extends Controller
         $patient = Patients::find($id);
         $appointments = Appointments::where('mrn',$patient->mrn)->get();
         $notes = PatientNotes::where('mrn',$patient->mrn)->get();
-        return view('patientsEdit', ['patients'=>$patient, 'appointments'=>$appointments, 'notes'=>$notes]);
+
+        return view('patients.patientsShow', ['patients'=>$patient, 'appointments'=>$appointments, 'notes'=>$notes]);
     }
 
     /**
@@ -96,33 +96,26 @@ class PatientsController extends Controller
     {
         $search = $request->get('query');
         $output = '';
-        $result = DB::table('patients')->where('mrn','like',$search.'%')->get();
+
+        $result = Patients::MRN($search)->orWhere->name($search)->get();
 
         if($search == ""){
             $output = "";
         }else{
             if($result->count() > 0) {
                 foreach ($result as $row) {
-                    $output .= "<a href='".url('patients')."/".$row->id."'><li class=\"list-group-item search-patient-result-item\">
-                                    <h6 class=\"p-t-10 mb-2\">".$row->name."</h6>
-                                    <span><span class=\"icon-phone\"></span> ".$row->phone." | <span class=\"icon-people\"></span>  ".$row->mrn."</span>
-                                </li></a>";
+                    $output .= view('patients.components.patientSearchResult',['isNull'=>false,'row'=>$row]);
                 }
             }
             else{
-                $output .= "<li class=\"list-group-item\">
-                                    <h6 class=\"p-t-10\">No Patient Found</h6>
-                                    <span>NULL | NULL</span>
-                                </li>";
+                $output .= view('patients.components.patientSearchResult',['isNull'=>true]);
             }
         }
-
 
         $result = array(
             'table'  => $output
         );
 
         return response()->json($result);
-
     }
 }
