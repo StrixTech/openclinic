@@ -39,7 +39,7 @@
     -->
     <script>(function(w,d,u){w.readyQ=[];w.bindReadyQ=[];function p(x,y){if(x=="ready"){w.bindReadyQ.push(y);}else{w.readyQ.push(x);}};var a={ready:p,bind:p};w.$=w.jQuery=function(f){if(f===d||f===u){return a}else{p(f)}}})(window,document)</script>
 </head>
-<body class="light @auth sidebar-mini sidebar-collapse sidebar-expanded-on-hover @endauth">
+<body class="light @auth sidebar-mini sidebar-collapse sidebar-expanded-on-hover @endauth @if(env('DARKTHEME') == true) theme-dark @endif">
     <!-- Pre loader -->
     <div id="loader" class="loader">
         <div class="plane-container">
@@ -97,6 +97,14 @@
             @yield('content')
         </main>
     </div>
+
+    @if(env('IS_HOSTED') == true)
+    <div class="container d-sm-flex flex-row-reverse" style="justify-content: center;align-items: center;font-size: 12px;">
+        <ul class="list-style-none d-flex text-gray">
+            <li class="mr-3">© {{date('Y')}} Strix Technologies</li>
+        </ul>
+    </div>
+    @endif
 
     <!-- JS -->
     <script src="{{ mix('/js/app.js') }}"></script>

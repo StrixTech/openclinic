@@ -41,7 +41,7 @@
                                             @foreach($appointments as $appt)
                                             <li class="list-group-item">
                                                 <h6 class="p-t-10">{{$appt->date}}</h6>
-                                                <span>{{$appt->created_by}} | Room {{$appt->room}} | {{$appt->department_id}}</span>
+                                                <span>{{$appointments->getStaffName($appt->created_by)}} | Room {{$appt->room}} | {{$appt->department_id}}</span>
                                             </li>
                                             @endforeach
                                         @else
@@ -57,8 +57,15 @@
 
                         </div>
                         <div class="col-md-9">
-
-                            <div class="row">
+                            <div class="row user-actions">
+                                <div class="col-lg-2">
+                                    <a href="#" class="btn btn-primary" style="width:100%">Prescriptions</a>
+                                </div>
+                                <div class="col-lg-2">
+                                    <a href="#" class="btn btn-primary" style="width:100%">Labs</a>
+                                </div>
+                            </div>
+                            <div class="row my-3">
                                 <div class="col-lg-4">
                                     <div class="card r-3">
                                         <div class="p-4">
@@ -70,30 +77,9 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-lg-4">
-                                    <div class="card r-3">
-                                        <div class="p-4">
-                                            <div class="float-right"><span class="icon-stop-watch3 s-48"></span>
-                                            </div>
-                                            <div class="counter-title ">Absence</div>
-                                            <h5 class="sc-counter mt-3">12</h5>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4">
-                                    <div class="white card">
-                                        <div class="p-4">
-                                            <div class="float-right"><span class="icon-orders s-48"></span>
-                                            </div>
-                                            <div class="counter-title">Roll Number</div>
-                                            <h5 class="sc-counter mt-3">26</h5>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
 
                             <div class="row my-3">
-                                <!-- bar charts group -->
                                 <div class="col-md-12">
                                     <div class="card">
                                         <div class="card-header white">
@@ -120,9 +106,9 @@
                                                                 </div>
                                                                 <div>
                                                                     <div>
-                                                                        <strong></strong>
+                                                                        <strong>Patient Notes for {{$note->date}}</strong>
                                                                     </div>
-                                                                    <small>{{$note->date}} | {{$note->created_by}}</small>
+                                                                    <small>Last Edit: {{\App\PatientNotes::getStaffName($note->created_by)}}</small>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -154,21 +140,6 @@
                                                     </li>
                                                 @endif
                                             </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- /bar charts group -->
-
-
-                            </div>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="card">
-                                        <div class="card-header white">
-                                            <h6>New Followers <span class="badge badge-success r-3">30+</span></h6>
-                                        </div>
-                                        <div class="card-body">
-
                                         </div>
                                     </div>
                                 </div>

@@ -2,7 +2,7 @@
     <aside class="main-sidebar fixed offcanvas b-r sidebar-tabs" data-toggle='offcanvas'>
         <div class="sidebar">
             <div class="d-flex hv-100 align-items-stretch">
-                <div class="indigo text-white">
+                <div class="@if(env('DARKTHEME')==false) indigo text-white @endif">
                     <div class="nav mt-5 pt-5 flex-column nav-pills" id="v-pills-tab" role="tablist"
                          aria-orientation="vertical">
                         <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab"
