@@ -1,6 +1,7 @@
 <p align="center"><img src="https://strixtech.ml/wp-content/uploads/2019/05/openClinic_black.png" width="50%"></p>
 
 <p align="center">
+<a href="https://github.styleci.io/repos/115970413"><img src="https://github.styleci.io/repos/115970413/shield?branch=develop" alt="StyleCI"></a>
 <a href="https://github.com/StrixTech/openclinic/blob/develop/LICENSE"><img alt="GitHub license" src="https://img.shields.io/github/license/StrixTech/openclinic.svg?style=flat-square"></a>
 <a href="https://github.com/StrixTech/openclinic/releases"><img src="https://img.shields.io/github/release/StrixTech/openclinic.svg?style=flat-square" alt="Latest Stable Version"></a>
 </p>
