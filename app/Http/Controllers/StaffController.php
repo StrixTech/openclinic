@@ -18,7 +18,7 @@ class StaffController extends Controller
     {
         $staff = Staff::paginate(15);
 
-        return view('admin.adminStaffShow',['staffs'=>$staff]);
+        return view('admin.adminStaffShow', ['staffs'=>$staff]);
     }
 
     /**
@@ -54,9 +54,9 @@ class StaffController extends Controller
     {
         $staff = Staff::find($id);
 
-        if($request->ajax()) {
+        if ($request->ajax()) {
             return response()->json(['html' => view('admin.adminStaffInfoAjax', ['staff' => $staff])->render()]);
-        }else{
+        } else {
             return view('admin.adminStaffInfo', ['staff' => $staff]);
         }
     }
@@ -96,7 +96,7 @@ class StaffController extends Controller
     }
 
     /**
-     * Searches for a staff and returns a json
+     * Searches for a staff and returns a json.
      *
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse
@@ -109,22 +109,21 @@ class StaffController extends Controller
 
         $result = Staff::staffID($search)->orWhere->name($search)->get();
 
-        if($search == ""){
-            $output = "";
-        }else{
-            if($result->count() > 0) {
+        if ($search == '') {
+            $output = '';
+        } else {
+            if ($result->count() > 0) {
                 foreach ($result as $row) {
-                    $output .= view('admin.components.adminStaffSearchResult',['isNull'=>false, 'row'=>$row])->render();
+                    $output .= view('admin.components.adminStaffSearchResult', ['isNull'=>false, 'row'=>$row])->render();
                 }
-            }
-            else{
-                $output .= view('admin.components.adminStaffSearchResult',['isNull'=>true])->render();
+            } else {
+                $output .= view('admin.components.adminStaffSearchResult', ['isNull'=>true])->render();
             }
         }
 
-        $result = array(
-            'table'  => $output
-        );
+        $result = [
+            'table'  => $output,
+        ];
 
         return response()->json($result);
     }

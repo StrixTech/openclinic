@@ -15,7 +15,7 @@
                                         <?php
                                         $per_found = null;
 
-                                        if( isset($role) ) {
+                                        if (isset($role)) {
                                             $per_found = $role->hasPermissionTo($perm->name);
                                         }
                                         ?>

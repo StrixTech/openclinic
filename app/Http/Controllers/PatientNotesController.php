@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\PatientNotes;
-use App\Patients;
 use App\User;
+use App\Patients;
+use App\PatientNotes;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class PatientNotesController extends Controller
 {
@@ -18,7 +18,6 @@ class PatientNotesController extends Controller
      */
     public function index()
     {
-
     }
 
     /**
@@ -29,6 +28,7 @@ class PatientNotesController extends Controller
     public function create(Request $request)
     {
         $patient = Patients::find($request->get('id'));
+
         return view('patients.patientNotesCreate', ['patient'=>$patient]);
     }
 
@@ -43,7 +43,7 @@ class PatientNotesController extends Controller
      */
     public function store(Request $request)
     {
-        $patient = Patients::where('mrn',$request->post('mrn'))->first();
+        $patient = Patients::where('mrn', $request->post('mrn'))->first();
         $patientID = $patient->id;
         $note = new PatientNotes();
         $note->mrn = $request->post('mrn');
@@ -53,6 +53,7 @@ class PatientNotesController extends Controller
         $note->date = $dt->format('Y-m-d');
 
         $note->save();
+
         return redirect(url('patients/'.$patientID))->with('toast_success', 'Saved!');
     }
 
@@ -64,7 +65,6 @@ class PatientNotesController extends Controller
      */
     public function show($id)
     {
-
     }
 
     /**
@@ -73,7 +73,8 @@ class PatientNotesController extends Controller
      * @param $id
      * @return \Illuminate\Http\JsonResponse
      */
-    public function pnget($id){
+    public function pnget($id)
+    {
         $notes = PatientNotes::find($id);
 
         return response()->json($notes);
