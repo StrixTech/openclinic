@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use DateTime;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class AppointmentsController extends Controller
 {
@@ -17,7 +17,7 @@ class AppointmentsController extends Controller
     {
         $allAppointments = DB::table('appointments')->select('id', 'mrn as title', 'date as start')->get();
 
-        $appointments = $allAppointments->toJson(JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT);
+        $appointments = $allAppointments->toJson(JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);
 
         return view('appointment', ['appointments' => $appointments]);
     }
@@ -29,7 +29,6 @@ class AppointmentsController extends Controller
      */
     public function create()
     {
-
     }
 
     /**
@@ -60,8 +59,9 @@ class AppointmentsController extends Controller
      */
     public function show($id)
     {
-        $appointment = DB::table('appointments')->where('id',$id)->get()->first();
-        $patient = DB::table('patients')->where('mrn',$appointment->mrn)->get()->first();
+        $appointment = DB::table('appointments')->where('id', $id)->get()->first();
+        $patient = DB::table('patients')->where('mrn', $appointment->mrn)->get()->first();
+
         return view('components.appointmentInfo', ['appointment' => $appointment, 'patient' => $patient]);
     }
 
