@@ -3,6 +3,8 @@ php:
   disabled:
     - unused_use
   finder:
+    name:
+      - "*.php"
     not-name:
       - index.php
       - server.php
