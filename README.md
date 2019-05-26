@@ -1,8 +1,7 @@
-MyMedic
-========
+<p align="center"><img src="https://strixtech.ml/wp-content/uploads/2019/05/openClinic_black.png" width="50%"></p>
 > The solution for hospitals and clinics around the world
 
-[![GitHub license](https://img.shields.io/github/license/StrixTech/mymedic.svg)](https://github.com/StrixTech/mymedic/blob/develop/LICENSE)
+[![GitHub license](https://img.shields.io/github/license/StrixTech/openclinic.svg)](https://github.com/StrixTech/openclinic/blob/develop/LICENSE)
 
 ## Table of contents
 
@@ -18,21 +17,21 @@ Do you want to help? That's awesome. Here are simple things you can do.
 ### As a community
 
 * Unlike Fight Club, the best way to help is **to actually talk about the project** as much as you can (blog post, articles, Twitter, Facebook).
-* You can answer questions in [the issue tracker](https://github.com/StrixTech/mymedic) to help other community members.
+* You can answer questions in [the issue tracker](https://github.com/StrixTech/openclinic) to help other community members.
 
 ### Contribute as a developer
 
 * Read our [Contribution Guide](/.github/CONTRIBUTING.md).
 * Install the developer version locally so you can start contributing.
-* Look for [issues labelled bugs](https://github.com/StrixTech/mymedic/issues?q=is%3Aopen+is%3Aissue+label%3Abug) if you are looking to have an immediate impact on the project.
-* Look for [issues labelled Help wanted](https://github.com/StrixTech/mymedic/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22) These are issues that you can solve relatively easily.
-* Look for [issues labelled Good first issue](https://github.com/StrixTech/mymedic/labels/good%20first%20issue) These issues are for people who want to contribute, but try to work on a small feature first.
-* If you are an advanced developer, you can try to tackle [issues labelled feature requests](https://github.com/StrixTech/mymedic/issues?q=is%3Aopen+is%3Aissue+label%3A%22feature+request%22). Beware though - they are harder to do and will require a lot of back and forth with the repository administrator in order to make sure we are going to the right direction with the product.
+* Look for [issues labelled bugs](https://github.com/StrixTech/openclinic/issues?q=is%3Aopen+is%3Aissue+label%3Abug) if you are looking to have an immediate impact on the project.
+* Look for [issues labelled Help wanted](https://github.com/StrixTech/openclinic/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22) These are issues that you can solve relatively easily.
+* Look for [issues labelled Good first issue](https://github.com/StrixTech/openclinic/labels/good%20first%20issue) These issues are for people who want to contribute, but try to work on a small feature first.
+* If you are an advanced developer, you can try to tackle [issues labelled feature requests](https://github.com/StrixTech/openclinic/issues?q=is%3Aopen+is%3Aissue+label%3A%22feature+request%22). Beware though - they are harder to do and will require a lot of back and forth with the repository administrator in order to make sure we are going to the right direction with the product.
 
 We welcome contributions of all kinds from anyone.
 
 ## Installation
-There are multiple ways of getting started with `mymedic`.
+There are multiple ways of getting started with openClinic.
 
 1. You can use our hosted-version (this is the simplest way to use the product) - `coming soon`.
 1. You can install it on your server: follow installation instructions ([here](/docs/installation.md)).
@@ -53,4 +52,4 @@ We are also fortunate to have an amazing community of external developers who he
 
 ## License
 
-`mymedic` is licensed under the GNU Public License v3 (GPLv3). A public accessible license is available [here](/LICENSE).
+openClinic is licensed under the GNU Public License v3 (GPLv3). A public accessible license is available [here](/LICENSE).
