@@ -1,7 +1,11 @@
 <p align="center"><img src="https://strixtech.ml/wp-content/uploads/2019/05/openClinic_black.png" width="50%"></p>
-> The solution for hospitals and clinics around the world
 
-[![GitHub license](https://img.shields.io/github/license/StrixTech/openclinic.svg)](https://github.com/StrixTech/openclinic/blob/develop/LICENSE)
+<p align="center">
+<a href="https://github.com/StrixTech/openclinic/blob/develop/LICENSE"><img alt="GitHub license" src="https://img.shields.io/github/license/StrixTech/openclinic.svg?style=flat-square"></a>
+<a href="https://github.com/StrixTech/openclinic/releases"><img src="https://img.shields.io/github/release/StrixTech/openclinic.svg?style=flat-square" alt="Latest Stable Version"></a>
+</p>
+
+The solution for hospitals and clinics around the world
 
 ## Table of contents
 
