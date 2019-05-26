@@ -6,7 +6,6 @@ use App\Appointments;
 use App\PatientNotes;
 use App\Patients;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class PatientsController extends Controller
 {
@@ -19,7 +18,7 @@ class PatientsController extends Controller
     {
         $patients = Patients::paginate(10);
 
-        return view('patients.patients', ['patients'=>$patients]);
+        return view('patients.patients', ['patients' => $patients]);
     }
 
     /**
@@ -35,7 +34,8 @@ class PatientsController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -46,22 +46,24 @@ class PatientsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
         $patient = Patients::find($id);
-        $appointments = Appointments::where('mrn',$patient->mrn)->get();
-        $notes = PatientNotes::where('mrn',$patient->mrn)->get();
+        $appointments = Appointments::where('mrn', $patient->mrn)->get();
+        $notes = PatientNotes::where('mrn', $patient->mrn)->get();
 
-        return view('patients.patientsShow', ['patients'=>$patient, 'appointments'=>$appointments, 'notes'=>$notes]);
+        return view('patients.patientsShow', ['patients' => $patient, 'appointments' => $appointments, 'notes' => $notes]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Patients  $patients
+     * @param \App\Patients $patients
+     *
      * @return \Illuminate\Http\Response
      */
     public function edit(Patients $patients)
@@ -72,8 +74,9 @@ class PatientsController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Patients  $patients
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Patients            $patients
+     *
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Patients $patients)
@@ -84,7 +87,8 @@ class PatientsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Patients  $patients
+     * @param \App\Patients $patients
+     *
      * @return \Illuminate\Http\Response
      */
     public function destroy(Patients $patients)
@@ -92,6 +96,11 @@ class PatientsController extends Controller
         //
     }
 
+    /**
+     * @param \Illuminate\Http\Request $request
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function search(Request $request)
     {
         $search = $request->get('query');
@@ -99,21 +108,20 @@ class PatientsController extends Controller
 
         $result = Patients::MRN($search)->orWhere->name($search)->get();
 
-        if($search == ""){
+        if ($search == "") {
             $output = "";
-        }else{
-            if($result->count() > 0) {
+        } else {
+            if ($result->count() > 0) {
                 foreach ($result as $row) {
-                    $output .= view('patients.components.patientSearchResult',['isNull'=>false,'row'=>$row]);
+                    $output .= view('patients.components.patientSearchResult', ['isNull' => false, 'row' => $row]);
                 }
-            }
-            else{
-                $output .= view('patients.components.patientSearchResult',['isNull'=>true]);
+            } else {
+                $output .= view('patients.components.patientSearchResult', ['isNull' => true]);
             }
         }
 
         $result = array(
-            'table'  => $output
+            'table' => $output
         );
 
         return response()->json($result);
