@@ -11,9 +11,9 @@
 |
 */
 
+use Illuminate\Http\Request;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PatientNotesController;
-use Illuminate\Http\Request;
 
 Route::get('/', function () {
     return view('welcome');
@@ -28,11 +28,12 @@ Route::group(['middleware' => ['permission:appointments|patients']], function ()
     Route::resource('appointments', 'AppointmentsController');
     Route::resource('patients', 'PatientsController');
     Route::resource('patients/notes', 'PatientNotesController');
-    Route::get('pnget/{id}', function ($id){
-       $patientNote = new PatientNotesController();
-       return $patientNote->pnget($id);
+    Route::get('pnget/{id}', function ($id) {
+        $patientNote = new PatientNotesController();
+
+        return $patientNote->pnget($id);
     });
-    Route::get('psearch','PatientsController@search');
+    Route::get('psearch', 'PatientsController@search');
 });
 
 Route::group(['middleware' => ['role:admin']], function () {
@@ -42,19 +43,21 @@ Route::group(['middleware' => ['role:admin']], function () {
     Route::get('admin/roles', 'AdminController@roles');
     Route::post('admin/task/create-role', 'AdminController@roleCreate');
     Route::get('admin/roles/{id}/delete', function ($id) {
-       $admin = new AdminController();
-       return $admin->roleDelete($id);
+        $admin = new AdminController();
+
+        return $admin->roleDelete($id);
     });
     Route::get('admin/roles/{id}', function ($id) {
         $admin = new AdminController();
+
         return $admin->roleGet($id);
     });
     Route::get('admin/roles/{id}/edit', function ($id, Request $request) {
         $admin = new AdminController();
+
         return $admin->roleEdit($request, $id);
     });
 
     Route::resource('admin/staff', 'StaffController');
-    Route::get('assearch','StaffController@search');
+    Route::get('assearch', 'StaffController@search');
 });
-

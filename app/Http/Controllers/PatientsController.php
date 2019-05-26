@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Patients;
 use App\Appointments;
 use App\PatientNotes;
-use App\Patients;
 use Illuminate\Http\Request;
 
 class PatientsController extends Controller
@@ -108,8 +108,8 @@ class PatientsController extends Controller
 
         $result = Patients::MRN($search)->orWhere->name($search)->get();
 
-        if ($search == "") {
-            $output = "";
+        if ($search == '') {
+            $output = '';
         } else {
             if ($result->count() > 0) {
                 foreach ($result as $row) {
@@ -120,9 +120,9 @@ class PatientsController extends Controller
             }
         }
 
-        $result = array(
-            'table' => $output
-        );
+        $result = [
+            'table' => $output,
+        ];
 
         return response()->json($result);
     }
