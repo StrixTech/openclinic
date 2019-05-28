@@ -11,7 +11,7 @@
                 <div class="relative">
                     <div class="d-flex">
                         <div class="d-none d-md-block">
-                            <h1 class="nav-title text-black">Appointments</h1>
+                            <h1 class="nav-title @if(env('DARKTHEME')==true) text-white @endif">Appointments</h1>
                         </div>
                     </div>
                 </div>
@@ -20,17 +20,17 @@
         </div>
         <div class="container-fluid relative animatedParent animateOnce my-3">
             <div class="container-fluid p-0">
-                <div class="row no-gutters">
+                <div class="row">
                     <div class="col-md-3">
-                        <div class="card r-0 b-0 shadow">
-                                <div class="card-header white ">
+                        <div class="card r-0 b-0 @if(env('DARKTHEME')==false) shadow @endif">
+                                <div class="card-header @if(env('DARKTHEME')==false) white @endif">
                                     <h6>Find an appointment</h6>
                                 </div>
 
                                 <div class="card-body b-t pt-2 pb-2 no-b">
                                     <div class="form-group">
                                         <div class="form-line">
-                                            <input type="text" class="form-control" placeholder="MRN">
+                                            <input type="text" class="form-control" placeholder="MRN" @if(env('DARKTHEME')==true) style="background: transparent;" @endif/>
                                         </div>
 
                                         <button type="submit" class="btn btn-primary mt-2"><i class="icon-search mr-2"></i>Search
@@ -44,7 +44,7 @@
                             <form class="form-material" method="post">
                                 @csrf
 
-                                <div class="card-header white ">
+                                <div class="card-header @if(env('DARKTHEME')==false) white @endif">
                                     <h6>Create a new appointment</h6>
                                 </div>
 
@@ -52,7 +52,7 @@
                                     <div class="form-group form-float">
                                         <div class="form-line">
                                             <label class="form-label">MRN</label>
-                                            <input id="mrn" type="text" class="form-control" name="mrn">
+                                            <input id="mrn" type="text" class="form-control" name="mrn" @if(env('DARKTHEME')==true) style="background: transparent;" @endif>
                                         </div>
                                     </div>
                                     <div class="form-group form-float">
@@ -63,7 +63,7 @@
                                                    data-options='{
                                                    "mask":true,
                                                    "format":"d/m/Y H:i",
-                                                    "allowTimes":["08:00", "08:30", "09:00", "09:30", "10:00", "10:30", "11:00", "11:30","12:00","14:00","14:30","15:00","15:30","16:00"]}'/>
+                                                    "allowTimes":["08:00", "08:30", "09:00", "09:30", "10:00", "10:30", "11:00", "11:30","12:00","14:00","14:30","15:00","15:30","16:00"]}' @if(env('DARKTHEME')==true) style="background: transparent;" @endif/>
                                         </div>
                                     </div>
 
@@ -108,6 +108,17 @@
         </div>
     </div>
 
+    @if(env('DARKTHEME')==true)
+        <style>
+            .fc-toolbar {
+                background-color: #272C33 !important;
+            }
+
+            .fc-today {
+                background-color: #303841 !important;
+            }
+        </style>
+    @endif
     <script>
         $(document).ready(function() {
             let calendarEl = document.getElementById('calendar');

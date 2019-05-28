@@ -11,7 +11,7 @@
                 <div class="relative">
                     <div class="d-flex">
                         <div class="d-none d-md-block">
-                            <h1 class="nav-title text-black"><a href="{{url('patients')}}">Patients</a> / <a href="{{url('patients')}}/{{$patient->id}}">{{$patient->mrn}}</a> / Create Note</h1>
+                            <h1 class="nav-title @if(env('DARKTHEME')==true) text-white @endif"><a href="{{url('patients')}}">Patients</a> / <a href="{{url('patients')}}/{{$patient->id}}">{{$patient->mrn}}</a> / Create Note</h1>
                         </div>
                     </div>
                 </div>
@@ -29,7 +29,7 @@
                             <div class="row my-3">
                                 <div class="col-md-12">
                                     <div class="card">
-                                        <div class="card-header white">
+                                        <div class="card-header @if(env('DARKTHEME')==false) white @endif">
                                             <h6>Patient Notes</h6>
                                         </div>
                                         <div class="card-body">
@@ -39,7 +39,7 @@
                                                         <div class="form-group">
                                                             <div class="form-line">
                                                                 <label for="name">Patient Name:</label>
-                                                                <input class="form-control" type="text" id="name" name="name" value="{{$patient->name}}" readonly/>
+                                                                <input class="form-control" type="text" id="name" name="name" value="{{$patient->name}}" readonly @if(env('DARKTHEME')==true) style="background: transparent;" @endif/>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -47,13 +47,13 @@
                                                         <div class="form-group">
                                                             <div class="form-line">
                                                                 <label for="mrn">Patient MRN:</label>
-                                                                <input class="form-control" type="text" id="mrn" name="mrn" value="{{$patient->mrn}}" readonly/>
+                                                                <input class="form-control" type="text" id="mrn" name="mrn" value="{{$patient->mrn}}" readonly @if(env('DARKTHEME')==true) style="background: transparent;" @endif/>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
-                                                    <textarea class="note" name="note"></textarea>
+                                                    <textarea class="note" name="note" @if(env('DARKTHEME')==true) style="background: transparent;" @endif></textarea>
                                                 </div>
                                                 {{ csrf_field() }}
                                                 <button type="submit" class="btn btn-primary">Save</button>
@@ -69,10 +69,17 @@
         </div>
     </div>
 
+    <style>
+        .tox-fullscreen .paper-nav-toggle {
+            z-index: 1099;
+        }
+    </style>
     <script>
         $(document).ready(function(){
             tinymce.init({
                 selector:'textarea.note',
+                plugins : 'advlist autolink autosave fullscreen link hr image insertdatetime lists table wordcount media searchreplace autolink charmap print preview',
+                @if(env('DARKTHEME')==true) skin:'oxide-dark', @endif
             });
         });
     </script>

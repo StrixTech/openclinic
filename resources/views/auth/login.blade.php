@@ -7,11 +7,12 @@
                     <div class="col-lg-4 mx-md-auto paper-card">
                         <div class="text-center">
                             <img src="img/dummy/u4.png" alt="">
-                            <h3 class="mt-2">Welcome Back</h3>
-                            <p class="p-t-b-20">Hey Soldier welcome back signin now there is lot of new stuff waiting
-                                for you</p>
+                            <h3 class="mt-2">Welcome to openClinic</h3>
+                            <p class="p-t-b-20">
+                                Look who's back! Sign in to access openClinic
+                            </p>
                         </div>
-                        <form method="POST" action="{{ route('login') }}">
+                        <form method="POST" action="{{ route('login') }}" autocomplete="off">
                             @csrf
 
                             <div class="form-group has-icon"><i class="icon-envelope-o"></i>
@@ -32,7 +33,7 @@
                                 </div>
                             </div>
 
-                            <a href="{{ route('password.request') }}" class="forget-pass">Have you forgot your username or password ?</a>
+                            <a href="{{ route('password.request') }}" class="forget-pass pt-2 position-absolute">Have you forgot your username or password ?</a>
                         </form>
                     </div>
                 </div>

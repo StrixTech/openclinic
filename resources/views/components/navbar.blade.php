@@ -15,7 +15,7 @@
                         <li>
                             <a href="#">
                                 <div class="avatar float-left">
-                                    <img src="img/dummy/u4.png" alt="">
+                                    <img src="/img/dummy/u4.png" alt="">
                                     <span class="avatar-badge busy"></span>
                                 </div>
                                 <h4>
@@ -30,7 +30,7 @@
                         <li>
                             <a href="#">
                                 <div class="avatar float-left">
-                                    <img src="img/dummy/u1.png" alt="">
+                                    <img src="/img/dummy/u1.png" alt="">
                                     <span class="avatar-badge online"></span>
                                 </div>
                                 <h4>
@@ -45,7 +45,7 @@
                         <li>
                             <a href="#">
                                 <div class="avatar float-left">
-                                    <img src="img/dummy/u2.png" alt="">
+                                    <img src="/img/dummy/u2.png" alt="">
                                     <span class="avatar-badge idle"></span>
                                 </div>
                                 <h4>
@@ -60,7 +60,7 @@
                         <li>
                             <a href="#">
                                 <div class="avatar float-left">
-                                    <img src="img/dummy/u3.png" alt="">
+                                    <img src="/img/dummy/u3.png" alt="">
                                     <span class="avatar-badge busy"></span>
                                 </div>
                                 <h4>

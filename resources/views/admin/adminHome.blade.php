@@ -11,7 +11,7 @@
                 <div class="relative">
                     <div class="d-flex">
                         <div class="d-none d-md-block">
-                            <h1 class="nav-title text-white">Dashboard</h1>
+                            <h1 class="nav-title @if(env('DARKTHEME')==true) text-white @endif">Admin</h1>
                         </div>
                     </div>
                 </div>
@@ -21,12 +21,12 @@
         <div class="container-fluid relative animatedParent animateOnce my-3">
             <div class="row my-3">
                 <div class="col-md-3">
-                    <div class="counter-box white r-5 p-3">
+                    <div class="card counter-box @if(env('DARKTHEME')==true) bg-silver @else white @endif r-5 p-3">
                         <div class="p-4">
                             <div class="float-right">
-                                <span class="icon icon-note-list text-light-blue s-48"></span>
+                                <span class="icon icon-note-list @if(env('DARKTHEME')==false) text-light-blue @endif s-48"></span>
                             </div>
-                            <div class="counter-title">Number of staff</div>
+                            <div class="counter-title @if(env('DARKTHEME')==false) text-light-blue @endif">Number of staff</div>
                             <h5 class="sc-counter mt-3">{{ $staff }}</h5>
                         </div>
                     </div>

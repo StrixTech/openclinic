@@ -11,7 +11,7 @@
                 <div class="relative">
                     <div class="d-flex">
                         <div class="d-none d-md-block">
-                            <h1 class="nav-title text-black">Notes - {{$patients->name}} ({{$notes->date ?? 'NULL'}})</h1>
+                            <h1 class="nav-title @if(env('DARKTHEME')==true) text-white @endif">Notes - {{$patients->name}} ({{$notes->date ?? 'NULL'}})</h1>
                         </div>
                     </div>
                 </div>

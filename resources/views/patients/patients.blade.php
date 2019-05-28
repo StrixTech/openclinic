@@ -25,7 +25,7 @@
                 <div class="relative">
                     <div class="d-flex">
                         <div class="d-none d-md-block">
-                            <h1 class="nav-title text-black">Patients</h1>
+                            <h1 class="nav-title @if(env('DARKTHEME')==true) text-white @endif">Patients</h1>
                         </div>
                     </div>
                 </div>
@@ -36,7 +36,7 @@
             <div class="row my-3">
                 <div class="col-md-3">
                     <div class="card r-0 shadow">
-                        <input id="search-patient" name="search" data-provide="typeahead" type="text" class="form-control" placeholder="Search Patient" autocomplete="off"/>
+                        <input id="search-patient" name="search" data-provide="typeahead" type="text" class="form-control" placeholder="Search Patient" autocomplete="off" @if(env('DARKTHEME')==true) style="background: transparent;" @endif/>
                         <ul id="search-patient-result" class="list-group list-group-flush" style="">
 
                         </ul>
@@ -46,9 +46,9 @@
                     <div class="card r-0 shadow">
                         <div class="table-responsive">
                             <form>
-                                <table class="table table-striped table-hover r-0" style="table-layout: fixed">
+                                <table class="table @if(env('DARKTHEME')==false) table-striped table-hover @endif r-0" style="table-layout: fixed">
                                     <thead>
-                                    <tr class="no-b">
+                                    <tr class="no-b @if(env('DARKTHEME')==true) text-white @endif">
                                         <th width="250px">NAME</th>
                                         <th>PHONE</th>
                                         <th>ADDRESS</th>
@@ -65,13 +65,13 @@
                                                 </div>
                                                 <div>
                                                     <div>
-                                                        <strong>{{$patient->name}}</strong>
+                                                        <strong @if(env('DARKTHEME')==true) class="text-white" @endif>{{$patient->name}}</strong>
                                                     </div>
-                                                    <small>MRN: {{$patient->mrn}}</small>
+                                                    <small @if(env('DARKTHEME')==true) class="text-white" @endif>MRN: {{$patient->mrn}}</small>
                                                 </div>
                                             </td>
-                                            <td>{{$patient->phone}}</td>
-                                            <td>{{$patient->address}}</td>
+                                            <td @if(env('DARKTHEME')==true) class="text-white" @endif>{{$patient->phone}}</td>
+                                            <td @if(env('DARKTHEME')==true) class="text-white" @endif>{{$patient->address}}</td>
                                             <td>
                                                 <a href="/patients/{{$patient->id}}"><i class="icon-eye mr-3"></i></a>
                                                 <a href="/patients/{{$patient->id}}/edit"><i class="icon-pencil"></i></a>

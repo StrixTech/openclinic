@@ -23,6 +23,14 @@
                 ({
                     url: '/admin/roles/' + role_id + '/delete',
                     type: 'GET',
+                    beforeSend: function(){
+                        // Show image container
+                        $("#loader").show();
+                    },
+                    complete:function(data){
+                        // Hide image container
+                        $("#loader").hide();
+                    }
                 }).done(function (data) {
                     $('#row-'+role_id).remove();
                     const Toast = Swal.mixin({

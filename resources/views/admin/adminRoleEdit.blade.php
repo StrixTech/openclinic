@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-md-12">
         <div class="card ">
-            <div class="card-header white">
+            <div class="card-header @if(env('DARKTHEME')==false) white @endif">
                 <h6>Edit Role - {{$role->name}}</h6>
             </div>
             <div class="card-body">
@@ -29,7 +29,7 @@
                                 </div>
                             </div>
 
-                            <input type="submit" class="btn btn-default">Save</input>
+                            <input type="submit" class="btn btn-primary"/>
                         </form>
                     </div>
                 </div>

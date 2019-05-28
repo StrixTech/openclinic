@@ -11,7 +11,7 @@
                 <div class="relative">
                     <div class="d-flex">
                         <div class="d-none d-md-block">
-                            <h1 class="nav-title text-black">Roles</h1>
+                            <h1 class="nav-title @if(env('DARKTHEME')==true) text-white @endif">Roles</h1>
                         </div>
                     </div>
                 </div>
@@ -29,22 +29,22 @@
 
                                 <div class="form-group">
                                     <div class="form-line">
-                                        <input name="role-name" type="text" class="form-control" placeholder="Role Name" autocomplete="off"/>
+                                        <input name="role-name" type="text" class="form-control" placeholder="Role Name" autocomplete="off" @if(env('DARKTHEME')==true) style="background: transparent;" @endif/>
                                     </div>
                                 </div>
 
-                                <button class="create-role btn btn-default">Save</button>
+                                <button class="create-role btn btn-primary">Save</button>
                             </form>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-9">
+                <div class="col-md-3">
                     <div class="card r-0 shadow">
                         <div class="table-responsive">
                             <form>
-                                <table class="table table-striped table-hover r-0" style="table-layout: fixed">
+                                <table class="table @if(env('DARKTHEME')==false)table-striped table-hover @endif r-0" style="table-layout: fixed">
                                     <thead>
-                                    <tr class="no-b">
+                                    <tr class="no-b @if(env('DARKTHEME')==true) text-white @endif">
                                         <th>NAME</th>
                                         <th width="80px">ACTIONS</th>
                                     </tr>
@@ -56,7 +56,7 @@
                                             <td>
                                                 <div>
                                                     <div>
-                                                        <strong>{{$role->name}}</strong>
+                                                        <strong @if(env('DARKTHEME')==true) class="text-white" @endif>{{$role->name}}</strong>
                                                     </div>
                                                 </div>
                                             </td>
@@ -79,7 +79,7 @@
     <!-- Modal -->
     <div class="modal fade" id="roleInfoModal" tabindex="-1" role="dialog" aria-labelledby="roleInfoModal" aria-hidden="true">
         <div class="modal-dialog" role="document">
-            <div class="modal-content">
+            <div class="modal-content shadow1" @if(env('DARKTHEME')==true) style="background-color: #121212;" @endif>
                 <div class="modal-header">
                     <h5 class="modal-title" id="roleInfoModalLabel">Appointment Info</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -107,6 +107,14 @@
                     url: '/admin/task/create-role',
                     type: 'POST',
                     data: {name: name, "_token": "{{ csrf_token() }}"},
+                    beforeSend: function(){
+                        // Show image container
+                        $("#loader").show();
+                    },
+                    complete:function(data){
+                        // Hide image container
+                        $("#loader").hide();
+                    },
                     success: function (data) {
                         const Toast = Swal.mixin({
                             toast: true,
@@ -134,6 +142,14 @@
                 ({
                     url: '/admin/roles/' + role_id + '/delete',
                     type: 'GET',
+                    beforeSend: function(){
+                        // Show image container
+                        $("#loader").show();
+                    },
+                    complete:function(data){
+                        // Hide image container
+                        $("#loader").hide();
+                    }
                 }).done(function (data) {
                     $('#row-'+role_id).remove();
                     const Toast = Swal.mixin({
@@ -158,7 +174,15 @@
                 ({
                     url: '/admin/roles/' + role_id,
                     type: 'GET',
-                    dataType: 'html'
+                    dataType: 'html',
+                    beforeSend: function(){
+                        // Show image container
+                        $("#loader").show();
+                    },
+                    complete:function(data){
+                        // Hide image container
+                        $("#loader").hide();
+                    }
                 }).done(function(data){
                     console.log(data);
                     $('#roleInfoModal').modal('show');

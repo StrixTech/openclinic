@@ -7,15 +7,38 @@
     <div class="has-sidebar-left has-sidebar-tabs">
         @include('components.searchbar')
         <div class="sticky">
-            <div class="navbar navbar-expand d-flex justify-content-between bd-navbar white shadow">
+            <div class="navbar navbar-expand d-flex justify-content-between bd-navbar white">
                 <div class="relative">
                     <div class="d-flex">
                         <div class="d-none d-md-block">
-                            <h1 class="nav-title text-black">Patient - {{$patients->name}}</h1>
+                            <h1 class="nav-title @if(env('DARKTHEME')==false) text-black @endif">Patient - {{$patients->name}}</h1>
                         </div>
                     </div>
                 </div>
                 @include('components.navbar')
+            </div>
+        </div>
+        <div class="navbar navbar-expand row bd-navbar white shadow mr-0">
+            <div class="col-12">
+                <div class="row mx-auto">
+                    <div class="col-2 p-0">
+                        <p class=" @if(env('DARKTHEME')==false) text-black @endif">MRN: {{$patients->mrn}}</p>
+                    </div>
+                    <div class="col-2 p-0">
+                        <p class=" @if(env('DARKTHEME')==false) text-black @endif">Gender: {{ucfirst($patients->gender)}}</p>
+                    </div>
+                    <div class="col-2 p-0">
+                        <p class=" @if(env('DARKTHEME')==false) text-black @endif">Age: @php $date = new \DateTime($patients->date_of_birth); $today = \Carbon\Carbon::now(); echo $today->diff($date)->y; @endphp</p>
+                    </div>
+                </div>
+                <div class="row mx-auto">
+                    <div class="col-2 p-0">
+                        <p class=" @if(env('DARKTHEME')==false) text-black @endif">DOB: {{$patients->date_of_birth}}</p>
+                    </div>
+                    <div class="col-2 p-0">
+                        <p class=" @if(env('DARKTHEME')==false) text-black @endif">Allergies: @if(!empty($patients->allergies)) {{$patients->allergies}} @else No Allergies @endif</p>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="container-fluid relative animatedParent animateOnce my-3">
@@ -32,7 +55,7 @@
                                 </ul>
                             </div>
                             <div class="card mt-3 mb-3">
-                                <div class="card-header bg-white">
+                                <div class="card-header @if(env('DARKTHEME')==false) bg-white @endif">
                                     <strong class="card-title">Appointments</strong>
                                 </div>
                                 <div>
@@ -64,27 +87,22 @@
                                 <div class="col-lg-2">
                                     <a href="#" class="btn btn-primary" style="width:100%">Labs</a>
                                 </div>
+                                <div class="col-lg-2">
+                                    <a href="#" class="btn btn-primary" style="width:100%">Radiology</a>
+                                </div>
+                                <div class="col-lg-2">
+                                    <a href="#" class="btn btn-primary" style="width:100%">Orders</a>
+                                </div>
                             </div>
                             <div class="row my-3">
-                                <div class="col-lg-4">
-                                    <div class="card r-3">
-                                        <div class="p-4">
-                                            <div class="float-right">
-                                                <span class="icon-award text-light-blue s-48"></span>
-                                            </div>
-                                            <div class="counter-title">Notes Count</div>
-                                            <h5 class="sc-counter mt-3"></h5>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
 
                             <div class="row my-3">
-                                <div class="col-md-12">
+                                <div class="col-md-6">
                                     <div class="card">
-                                        <div class="card-header white">
+                                        <div class="card-header @if(env('DARKTHEME')==false) bg-white @endif">
                                             <h6>Patient Notes</h6>
-                                            <a href="{{route('notes.create')}}?id={{$patients->id}}" class="btn-fab fab-right-bottom absolute btn-primary text-white shadow2"><i class="icon-add"></i></a>
+                                            <a href="{{route('notes.create')}}?id={{$patients->id}}" class="btn-fab fab-right-bottom absolute btn-primary text-white shadow1"><i class="icon-add"></i></a>
                                         </div>
                                         <div class="card-body">
                                             <ul class="list-unstyled">
@@ -100,9 +118,6 @@
                                                                     <a href="#" class="btn-fab btn-fab-sm btn-success r-5">
                                                                         <i class="icon-pencil p-0"></i>
                                                                     </a>
-                                                                </div>
-                                                                <div class="image mr-3  float-left">
-                                                                    <img class="w-40px" src="{{ Avatar::create($note->id)->toBase64() }}" alt="User Image">
                                                                 </div>
                                                                 <div>
                                                                     <div>
@@ -125,9 +140,6 @@
                                                                     <a href="#" class="btn-fab btn-fab-sm btn-success r-5">
                                                                         <i class="icon-pencil p-0"></i>
                                                                     </a>
-                                                                </div>
-                                                                <div class="image mr-3  float-left">
-                                                                    <img class="w-40px" src="{{ Avatar::create($patients->name)->toBase64() }}" alt="User Image">
                                                                 </div>
                                                                 <div>
                                                                     <div>
@@ -181,7 +193,15 @@
                 ({
                     url: '/pnget/'+id,
                     type: 'GET',
-                    dataType: 'json'
+                    dataType: 'json',
+                    beforeSend: function(){
+                        // Show image container
+                        $("#loader").show();
+                    },
+                    complete:function(data){
+                        // Hide image container
+                        $("#loader").hide();
+                    }
                 }).done(function (data) {
                     $('#notesModal').modal('show')
                     $('#notes-modal-content').html('');

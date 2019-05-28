@@ -2,7 +2,7 @@
     <aside class="main-sidebar fixed offcanvas b-r sidebar-tabs" data-toggle='offcanvas'>
         <div class="sidebar">
             <div class="d-flex hv-100 align-items-stretch">
-                <div class="@if(env('DARKTHEME')==false) indigo text-white @endif">
+                <div class="@if(env('DARKTHEME')==false) bg-blue @else bg-black @endif text-white">
                     <div class="nav mt-5 pt-5 flex-column nav-pills" id="v-pills-tab" role="tablist"
                          aria-orientation="vertical">
                         <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab"
@@ -39,7 +39,7 @@
                             </li>
                             @hasanyrole('doctor|admin')
                             <li class="treeview"><a href="#">
-                                    <i class="icon icon-sailing-boat-water purple-text s-18"></i> <span>Patients</span> <i
+                                    <i class="icon icon-sailing-boat-water s-18"></i> <span>Patients</span> <i
                                         class="icon icon-angle-left s-18 pull-right"></i>
                                 </a>
                                 <ul class="treeview-menu">
@@ -52,7 +52,7 @@
                             @endhasanyrole
                             @hasrole('admin')
                             <li class="treeview"><a href="#">
-                                    <i class="icon icon-sailing-boat-water purple-text s-18"></i> <span>Admin</span> <i
+                                    <i class="icon icon-sailing-boat-water s-18"></i> <span>Admin</span> <i
                                         class="icon icon-angle-left s-18 pull-right"></i>
                                 </a>
                                 <ul class="treeview-menu">
