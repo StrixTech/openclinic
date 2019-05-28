@@ -12,5 +12,6 @@ $factory->define(Patients::class, function (Faker $faker) {
         'address' => $faker->address,
         'phone' => $faker->phoneNumber,
         'email' => $faker->unique()->safeEmail,
+        ''
     ];
 });

@@ -11,6 +11,7 @@
 |
 */
 
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PatientNotesController;
@@ -24,6 +25,11 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['middleware' => ['permission:appointments|patients']], function () {
+    Route::get('getAllUsers', function (){
+       $users = User::select(['id','name'])->get();
+
+       return $users->toArray();
+    });
     //Route::get('/appointments', 'AppointmentsController@index');
     Route::resource('appointments', 'AppointmentsController');
     Route::resource('patients', 'PatientsController');
