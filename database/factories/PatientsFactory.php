@@ -17,6 +17,6 @@ $factory->define(Patients::class, function (Faker $faker) {
         'weight' => $faker->randomNumber(2, true),
         'date_of_birth' => $faker->dateTimeThisCentury->format('Y-m-d'),
         'allergies' => '',
-        'gender' => array_rand(['male','female']),
+        'gender' => array_rand(['male', 'female']),
     ];
 });

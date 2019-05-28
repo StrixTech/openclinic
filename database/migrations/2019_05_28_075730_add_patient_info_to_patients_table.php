@@ -14,7 +14,6 @@ class AddPatientInfoToPatientsTable extends Migration
     public function up()
     {
         Schema::table('patients', function (Blueprint $table) {
-
         });
     }
 
