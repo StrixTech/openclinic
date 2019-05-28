@@ -25,10 +25,10 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['middleware' => ['permission:appointments|patients']], function () {
-    Route::get('getAllUsers', function (){
-       $users = User::select(['id','name'])->get();
+    Route::get('getAllUsers', function () {
+        $users = User::select(['id', 'name'])->get();
 
-       return $users->toArray();
+        return $users->toArray();
     });
     //Route::get('/appointments', 'AppointmentsController@index');
     Route::resource('appointments', 'AppointmentsController');
