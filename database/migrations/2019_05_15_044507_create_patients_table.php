@@ -26,7 +26,6 @@ class CreatePatientsTable extends Migration
             $table->date('date_of_birth');
             $table->string('allergies');
             $table->enum('gender',['male','female']);
-            $table->float('weight');
 
             $table->timestamps();
         });
