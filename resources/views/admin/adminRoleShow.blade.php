@@ -11,7 +11,7 @@
                 <div class="relative">
                     <div class="d-flex">
                         <div class="d-none d-md-block">
-                            <h1 class="nav-title @if(env('DARKTHEME')==true) text-white @endif">Roles</h1>
+                            <h1 class="nav-title @settings('darkMode') text-white @endsettings">Roles</h1>
                         </div>
                     </div>
                 </div>
@@ -42,9 +42,9 @@
                     <div class="card r-0 shadow">
                         <div class="table-responsive">
                             <form>
-                                <table class="table @if(env('DARKTHEME')==false)table-striped table-hover @endif r-0" style="table-layout: fixed">
+                                <table class="table @settings('darkMode') @else table-striped table-hover @endsettings r-0" style="table-layout: fixed">
                                     <thead>
-                                    <tr class="no-b @if(env('DARKTHEME')==true) text-white @endif">
+                                    <tr class="no-b @settings('darkMode') text-white @endsettings">
                                         <th>NAME</th>
                                         <th width="80px">ACTIONS</th>
                                     </tr>
@@ -56,7 +56,7 @@
                                             <td>
                                                 <div>
                                                     <div>
-                                                        <strong @if(env('DARKTHEME')==true) class="text-white" @endif>{{$role->name}}</strong>
+                                                        <strong @settings('darkMode') class="text-white" @endsettings>{{$role->name}}</strong>
                                                     </div>
                                                 </div>
                                             </td>
@@ -79,7 +79,7 @@
     <!-- Modal -->
     <div class="modal fade" id="roleInfoModal" tabindex="-1" role="dialog" aria-labelledby="roleInfoModal" aria-hidden="true">
         <div class="modal-dialog" role="document">
-            <div class="modal-content shadow1" @if(env('DARKTHEME')==true) style="background-color: #121212;" @endif>
+            <div class="modal-content shadow1" @settings('darkMode') style="background-color: #121212;" @endsettings>
                 <div class="modal-header">
                     <h5 class="modal-title" id="roleInfoModalLabel">Appointment Info</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">

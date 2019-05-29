@@ -25,7 +25,7 @@
                 <div class="relative">
                     <div class="d-flex">
                         <div class="d-none d-md-block">
-                            <h1 class="nav-title @if(env('DARKTHEME')==true) text-white @endif">Patients</h1>
+                            <h1 class="nav-title @settings('darkMode') text-white @endsettings">Patients</h1>
                         </div>
                     </div>
                 </div>
@@ -48,7 +48,7 @@
                             <form>
                                 <table class="table @if(env('DARKTHEME')==false) table-striped table-hover @endif r-0" style="table-layout: fixed">
                                     <thead>
-                                    <tr class="no-b @if(env('DARKTHEME')==true) text-white @endif">
+                                    <tr class="no-b @settings('darkMode') text-white @endsettings">
                                         <th width="250px">NAME</th>
                                         <th>PHONE</th>
                                         <th>ADDRESS</th>
@@ -65,16 +65,15 @@
                                                 </div>
                                                 <div>
                                                     <div>
-                                                        <strong @if(env('DARKTHEME')==true) class="text-white" @endif>{{$patient->name}}</strong>
+                                                        <strong @settings('darkMode') class="text-white" @endsettings>{{$patient->name}}</strong>
                                                     </div>
-                                                    <small @if(env('DARKTHEME')==true) class="text-white" @endif>MRN: {{$patient->mrn}}</small>
+                                                    <small @settings('darkMode') class="text-white" @endsettings>MRN: {{$patient->mrn}}</small>
                                                 </div>
                                             </td>
-                                            <td @if(env('DARKTHEME')==true) class="text-white" @endif>{{$patient->phone}}</td>
-                                            <td @if(env('DARKTHEME')==true) class="text-white" @endif>{{$patient->address}}</td>
-                                            <td>
-                                                <a href="/patients/{{$patient->id}}"><i class="icon-eye mr-3"></i></a>
-                                                <a href="/patients/{{$patient->id}}/edit"><i class="icon-pencil"></i></a>
+                                            <td @settings('darkMode') class="text-white" @endsettings>{{$patient->phone}}</td>
+                                            <td @settings('darkMode') class="text-white" @endsettings>{{$patient->address}}</td>
+                                            <td class="d-flex justify-content-center">
+                                                <a href="/patients/{{$patient->id}}"><i class="icon-eye"></i></a>
                                             </td>
                                         </tr>
                                         @endforeach

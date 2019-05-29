@@ -2,7 +2,7 @@
     <aside class="main-sidebar fixed offcanvas b-r sidebar-tabs" data-toggle='offcanvas'>
         <div class="sidebar">
             <div class="d-flex hv-100 align-items-stretch">
-                <div class="@if(env('DARKTHEME')==false) bg-blue @else bg-black @endif text-white">
+                <div class="@settings('darkMode') bg-black @else bg-blue @endsettings text-white">
                     <div class="nav mt-5 pt-5 flex-column nav-pills" id="v-pills-tab" role="tablist"
                          aria-orientation="vertical">
                         <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab"
@@ -57,6 +57,7 @@
                                 </a>
                                 <ul class="treeview-menu">
                                     <li><a href="/admin"><i class="icon icon-folder5"></i>Home</a></li>
+                                    <li><a href="{{route('admin.settings')}}"><i class="icon icon-folder5"></i>Settings</a></li>
                                     <li><a href="/admin/roles"><i class="icon icon-folder5"></i>Roles</a></li>
                                     <li><a href="{{route('staff.index')}}"><i class="icon icon-folder5"></i>Staff</a></li>
                                 </ul>

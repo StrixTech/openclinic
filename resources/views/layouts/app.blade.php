@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{settings()->get('appName','openClinic')}}</title>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
@@ -39,9 +39,9 @@
     -->
     <script>(function(w,d,u){w.readyQ=[];w.bindReadyQ=[];function p(x,y){if(x=="ready"){w.bindReadyQ.push(y);}else{w.readyQ.push(x);}};var a={ready:p,bind:p};w.$=w.jQuery=function(f){if(f===d||f===u){return a}else{p(f)}}})(window,document)</script>
 </head>
-<body class="light @auth sidebar-mini sidebar-collapse sidebar-expanded-on-hover @endauth @if(env('DARKTHEME') == true) theme-dark @endif">
+<body class="light @auth sidebar-mini sidebar-collapse sidebar-expanded-on-hover @endauth @settings('darkMode') theme-dark @endsettings">
     <!-- Pre loader -->
-    <div id="loader" class="loader" @if(env('DARKTHEME') == true) style="background-color: #121212;" @endif>
+    <div id="loader" class="loader" @settings('darkMode') style="background-color: #121212;" @endsettings >
         <div class="plane-container">
             <div class="preloader-wrapper small active">
                 <div class="spinner-layer spinner-blue">

@@ -164,4 +164,26 @@ class AdminController extends Controller
 
         //var_dump($request->all());
     }
+
+    public function settings() {
+        $settings = settings()->all($fresh = true);
+
+        //print_r($settings['darkMode']);
+        return view('admin.adminSettings', ['settings'=>$settings]);
+    }
+
+    public function settingSave(Request $request){
+        print_r($request->all());
+
+        $post = $request->post();
+        while($setting = current($post)){
+            if(key($post) != '_token') {
+                print(key($post) ."/".$setting."</br>");
+                settings()->set(key($post), $setting);
+            }
+            next($post);
+        }
+
+        return \redirect()->route('admin.settings');
+    }
 }

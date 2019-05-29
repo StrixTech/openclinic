@@ -11,7 +11,7 @@
                 <div class="relative">
                     <div class="d-flex">
                         <div class="d-none d-md-block">
-                            <h1 class="nav-title @if(env('DARKTHEME')==false) text-black @endif">Patient - {{$patients->name}}</h1>
+                            <h1 class="nav-title @settings('darkMode') @else text-black @endsettings">Patient - {{$patients->name}}</h1>
                         </div>
                     </div>
                 </div>
@@ -20,25 +20,32 @@
         </div>
         <div class="navbar navbar-expand row bd-navbar white shadow mr-0">
             <div class="col-12">
-                <div class="row mx-auto">
-                    <div class="col-2 p-0">
-                        <p class=" @if(env('DARKTHEME')==false) text-black @endif">MRN: {{$patients->mrn}}</p>
+                <div class="d-flex justify-content-between">
+                    <div class="col-11">
+                        <div class="row mx-auto">
+                            <div class="col-2 p-0">
+                                <p class=" @settings('darkMode') @else text-black @endsettings">MRN: {{$patients->mrn}}</p>
+                            </div>
+                            <div class="col-2 p-0">
+                                <p class=" @settings('darkMode') @else text-black @endsettings">Gender: {{ucfirst($patients->gender)}}</p>
+                            </div>
+                            <div class="col-2 p-0">
+                                <p class=" @settings('darkMode') @else text-black @endsettings">Age: @php $date = new \DateTime($patients->date_of_birth); $today = \Carbon\Carbon::now(); echo $today->diff($date)->y; @endphp</p>
+                            </div>
+                        </div>
+                        <div class="row mx-auto">
+                            <div class="col-2 p-0">
+                                <p class=" @settings('darkMode') @else text-black @endsettings">DOB: {{$patients->date_of_birth}}</p>
+                            </div>
+                            <div class="col-2 p-0">
+                                <p class=" @settings('darkMode') @else text-black @endsettings">Allergies: @if(!empty($patients->allergies)) {{$patients->allergies}} @else No Allergies @endif</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-2 p-0">
-                        <p class=" @if(env('DARKTHEME')==false) text-black @endif">Gender: {{ucfirst($patients->gender)}}</p>
-                    </div>
-                    <div class="col-2 p-0">
-                        <p class=" @if(env('DARKTHEME')==false) text-black @endif">Age: @php $date = new \DateTime($patients->date_of_birth); $today = \Carbon\Carbon::now(); echo $today->diff($date)->y; @endphp</p>
-                    </div>
+                    <a href="{{route('patients.edit',$patients->id)}}" class="m-auto btn btn-primary" style="height: fit-content;"><i class="icon icon-pencil p-0"></i> </a>
+                    <a href="{{route('patients.destroy',$patients->id)}}" class="m-auto btn btn-primary" style="height: fit-content;"><i class="icon icon-delete p-0"></i> </a>
                 </div>
-                <div class="row mx-auto">
-                    <div class="col-2 p-0">
-                        <p class=" @if(env('DARKTHEME')==false) text-black @endif">DOB: {{$patients->date_of_birth}}</p>
-                    </div>
-                    <div class="col-2 p-0">
-                        <p class=" @if(env('DARKTHEME')==false) text-black @endif">Allergies: @if(!empty($patients->allergies)) {{$patients->allergies}} @else No Allergies @endif</p>
-                    </div>
-                </div>
+
             </div>
         </div>
         <div class="container-fluid relative animatedParent animateOnce my-3">
@@ -49,13 +56,13 @@
                             <div class="card ">
 
                                 <ul class="list-group list-group-flush">
-                                    <li class="list-group-item"><i class="icon icon-mobile text-primary"></i><strong class="s-12">Phone</strong></br> <span class="s-12">{{$patients->phone}}</span></li>
+                                    <li class="list-group-item"><i class="icon icon-mobile text-primary"></i><strong class="s-12">@settings('darkMode')) Phone @endsettings</strong></br> <span class="s-12">{{$patients->phone}}</span></li>
                                     <li class="list-group-item"><i class="icon icon-mail text-success"></i><strong class="s-12">Email</strong></br> <span class="s-12">{{$patients->email}}</span></li>
                                     <li class="list-group-item"><i class="icon icon-address-card-o text-warning"></i><strong class="s-12">Address</strong></br> <span class="s-12">{{$patients->address}}</span></li>
                                 </ul>
                             </div>
                             <div class="card mt-3 mb-3">
-                                <div class="card-header @if(env('DARKTHEME')==false) bg-white @endif">
+                                <div class="card-header @settings('darkMode') @else bg-white @endsettings">
                                     <strong class="card-title">Appointments</strong>
                                 </div>
                                 <div>
@@ -100,7 +107,7 @@
                             <div class="row my-3">
                                 <div class="col-md-6">
                                     <div class="card">
-                                        <div class="card-header @if(env('DARKTHEME')==false) bg-white @endif">
+                                        <div class="card-header @settings('darkMode') @else bg-white @endsettings">
                                             <h6>Patient Notes</h6>
                                             <a href="{{route('notes.create')}}?id={{$patients->id}}" class="btn-fab fab-right-bottom absolute btn-primary text-white shadow1"><i class="icon-add"></i></a>
                                         </div>

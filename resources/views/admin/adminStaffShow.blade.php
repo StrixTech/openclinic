@@ -11,7 +11,7 @@
                 <div class="relative">
                     <div class="d-flex">
                         <div class="d-none d-md-block">
-                            <h1 class="nav-title @if(env('DARKTHEME')==true) text-white @endif">Staff</h1>
+                            <h1 class="nav-title @settings('darkMode') text-white @endsettings">Staff</h1>
                         </div>
                     </div>
                 </div>
@@ -36,9 +36,9 @@
                 <div class="col-md-6">
                     <div class="card r-0 shadow">
                         <div class="table-responsive">
-                                <table class="table @if(env('DARKTHEME')==false) table-striped table-hover @endif r-0" style="table-layout: fixed">
+                                <table class="table @settings('darkMode') @else table-striped table-hover @endsettings r-0" style="table-layout: fixed">
                                     <thead>
-                                    <tr class="no-b @if(env('DARKTHEME')==true) text-white @endif">
+                                    <tr class="no-b @settings('darkMode') text-white @endsettings">
                                         <th>NAME</th>
                                         <th>STAFF ID</th>
                                         <th width="80px">ACTIONS</th>
@@ -51,12 +51,12 @@
                                             <td>
                                                 <div>
                                                     <div>
-                                                        <strong @if(env('DARKTHEME')==true) class="text-white" @endif>{{$staff->name}}</strong>
+                                                        <strong @settings('darkMode') class="text-white" @endsettings>{{$staff->name}}</strong>
                                                     </div>
-                                                    <small @if(env('DARKTHEME')==true) class="text-white" @endif>{{$staff->email}} | {{$staff->phone}}</small>
+                                                    <small @settings('darkMode') class="text-white" @endsettings>{{$staff->email}} | {{$staff->phone}}</small>
                                                 </div>
                                             </td>
-                                            <td @if(env('DARKTHEME')==true) class="text-white" @endif>{{$staff->staff_id}}</td>
+                                            <td @settings('darkMode') class="text-white" @endsettings>{{$staff->staff_id}}</td>
                                             <td>
                                                 <a href="#" class="view-staff" data-id="{{$staff->id}}"><i class="icon-pencil"></i></a>
                                             </td>

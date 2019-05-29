@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-md-12">
         <div class="card ">
-            <div class="card-header @if(env('DARKTHEME')==false) white @endif">
+            <div class="card-header @settings('darkMode') @else white @endsettings">
                 <h6>Edit Role - {{$role->name}}</h6>
             </div>
             <div class="card-body">

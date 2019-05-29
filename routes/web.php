@@ -65,5 +65,7 @@ Route::group(['middleware' => ['role:admin']], function () {
     });
 
     Route::resource('admin/staff', 'StaffController');
+    Route::get('admin/settings', 'AdminController@settings')->name('admin.settings');
+    Route::post('admin/settings/save', 'AdminController@settingSave')->name('admin.settingSave');
     Route::get('assearch', 'StaffController@search');
 });

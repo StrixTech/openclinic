@@ -11,7 +11,7 @@
                 <div class="relative">
                     <div class="d-flex">
                         <div class="d-none d-md-block">
-                            <h1 class="nav-title text-black"><a href="{{route('staff.index')}}">Staff</a> / {{$staff->name}}</h1>
+                            <h1 class="nav-title @settings('darkMode') text-white @endsettings"><a href="{{route('staff.index')}}">Staff</a> / {{$staff->name}}</h1>
                         </div>
                     </div>
                 </div>
