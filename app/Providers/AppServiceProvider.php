@@ -29,17 +29,16 @@ class AppServiceProvider extends ServiceProvider
     {
         Schema::defaultStringLength(191);
 
-        Blade::if('settings',function($env) {
-            if($env == 'darkMode'){
-                if(settings()->get($env,$default = false) == "on"){
+        Blade::if('settings', function ($env) {
+            if ($env == 'darkMode') {
+                if (settings()->get($env, $default = false) == 'on') {
                     return true;
-                }else{
+                } else {
                     return false;
                 }
-            }else{
-                return settings()->get($env,$default = false);
+            } else {
+                return settings()->get($env, $default = false);
             }
-
         });
     }
 }
