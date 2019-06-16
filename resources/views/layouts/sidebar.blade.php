@@ -8,7 +8,7 @@
                         <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab"
                            aria-controls="v-pills-home" aria-selected="true"><i class="icon-inbox2"></i></a>
                         <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab"
-                           aria-controls="v-pills-profile" aria-selected="false"><i class="icon-add"></i></a>
+                           aria-controls="v-pills-profile" aria-selected="false"><i class="icon-folder-bookmark"></i></a>
                         <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab"
                            aria-controls="v-pills-messages" aria-selected="false"><i class="icon-message"></i></a>
                         <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab"
@@ -27,42 +27,41 @@
                         <div class="relative brand-wrapper sticky b-b">
                             <div class="d-flex justify-content-between align-items-center p-3">
                                 <div class="text-xs-center">
-                                    <span class="font-weight-lighter s-18">Menu</span>
+                                    <span class="font-weight-lighter s-18 @settings('darkMode') text-white @else text-black @endsettings">Menu</span>
                                 </div>
-                                <div class="badge badge-danger r-0">New Panel</div>
                             </div>
                         </div>
                         <ul class="sidebar-menu">
-                            <li><a href="/home">
-                                    <i class="icon icon-sailing-boat-water s-24"></i> <span>Dashboard</span>
+                            <li><a href="/home" class="@settings('darkMode') text-white @else text-black @endsettings">
+                                    <i class="icon icon-home s-18"></i> <span>Dashboard</span>
                                 </a>
                             </li>
                             @hasanyrole('doctor|admin')
-                            <li class="treeview"><a href="#">
-                                    <i class="icon icon-sailing-boat-water s-18"></i> <span>Patients</span> <i
+                            <li class="treeview"><a href="#" class="@settings('darkMode') text-white @else text-black @endsettings">
+                                    <i class="icon icon-people s-18"></i> <span>Patients</span> <i
                                         class="icon icon-angle-left s-18 pull-right"></i>
                                 </a>
                                 <ul class="treeview-menu">
-                                    <li><a href="/patients"><i class="icon icon-folder5"></i>Patients</a>
+                                    <li><a href="/patients" class="@settings('darkMode') text-white @else text-black @endsettings"><i class="icon icon-folder5"></i>Patients</a>
                                     </li>
-                                    <li><a href="/appointments"><i class="icon icon-folder5"></i>Appointments</a>
+                                    <li><a href="/appointments" class="@settings('darkMode') text-white @else text-black @endsettings"><i class="icon icon-folder5"></i>Appointments</a>
                                     </li>
                                 </ul>
                             </li>
                             @endhasanyrole
                             @hasrole('admin')
-                            <li class="treeview"><a href="#">
-                                    <i class="icon icon-sailing-boat-water s-18"></i> <span>Admin</span> <i
+                            <li class="treeview"><a href="#" class="@settings('darkMode') text-white @else text-black @endsettings">
+                                    <i class="icon icon-cogs s-18"></i> <span>Admin</span> <i
                                         class="icon icon-angle-left s-18 pull-right"></i>
                                 </a>
                                 <ul class="treeview-menu">
-                                    <li><a href="/admin"><i class="icon icon-folder5"></i>Home</a></li>
-                                    <li><a href="{{route('admin.settings')}}"><i class="icon icon-folder5"></i>Settings</a></li>
-                                    <li><a href="/admin/roles"><i class="icon icon-folder5"></i>Roles</a></li>
-                                    <li><a href="{{route('staff.index')}}"><i class="icon icon-folder5"></i>Staff</a></li>
+                                    <li><a href="/admin" class="@settings('darkMode') text-white @else text-black @endsettings"><i class="icon icon-home"></i>Home</a></li>
+                                    <li><a href="{{route('admin.settings')}}" class="@settings('darkMode') text-white @else text-black @endsettings"><i class="icon icon-cog"></i>Settings</a></li>
+                                    <li><a href="/admin/roles" class="@settings('darkMode') text-white @else text-black @endsettings"><i class="icon icon-folder5"></i>Roles</a></li>
+                                    <li><a href="{{route('staff.index')}}" class="@settings('darkMode') text-white @else text-black @endsettings"><i class="icon icon-person"></i>Staff</a></li>
                                 </ul>
                             </li>
-                            @endhasanyrole
+                            @endhasrole
                         </ul>
                     </div>
                     <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
@@ -75,9 +74,8 @@
                             </form>
                         </div>
                         <div class="sticky slimScroll">
-
                             <div class="p-2">
-
+                                Show appointments here
                             </div>
                         </div>
                     </div>

@@ -6,8 +6,7 @@
                 <div class="row">
                     <div class="col-lg-4 mx-md-auto paper-card">
                         <div class="text-center">
-                            <img src="img/dummy/u4.png" alt="">
-                            <h3 class="mt-2">Welcome to openClinic</h3>
+                            <img src="images/logo/openClinic_black.png" alt="">
                             <p class="p-t-b-20">
                                 Look who's back! Sign in to access openClinic
                             </p>

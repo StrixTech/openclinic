@@ -1,6 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
+    <style>
+        .note-item:not(:last-child) {
+            border-bottom: 1px solid white;
+        }
+    </style>
+
     <a href="#" data-toggle="push-menu" class="paper-nav-toggle left ml-2 fixed">
         <i></i>
     </a>
@@ -11,7 +17,7 @@
                 <div class="relative">
                     <div class="d-flex">
                         <div class="d-none d-md-block">
-                            <h1 class="nav-title @settings('darkMode') @else text-black @endsettings">Patient - {{$patients->name}}</h1>
+                            <h1 class="nav-title @settings('darkMode') text-white @else text-black @endsettings"><a style="color:#606676 !important" href="{{route("patients.index")}}">Patient</a> | {{$patients->name}}</h1>
                         </div>
                     </div>
                 </div>
@@ -56,14 +62,14 @@
                             <div class="card ">
 
                                 <ul class="list-group list-group-flush">
-                                    <li class="list-group-item"><i class="icon icon-mobile text-primary"></i><strong class="s-12">@settings('darkMode')) Phone @endsettings</strong></br> <span class="s-12">{{$patients->phone}}</span></li>
-                                    <li class="list-group-item"><i class="icon icon-mail text-success"></i><strong class="s-12">Email</strong></br> <span class="s-12">{{$patients->email}}</span></li>
-                                    <li class="list-group-item"><i class="icon icon-address-card-o text-warning"></i><strong class="s-12">Address</strong></br> <span class="s-12">{{$patients->address}}</span></li>
+                                    <li class="list-group-item"><i class="icon icon-mobile text-success"></i><strong class="s-12 @settings('darkMode') text-white @else text-black @endsettings">Phone</strong></br> <span class="s-12">{{$patients->phone}}</span></li>
+                                    <li class="list-group-item"><i class="icon icon-mail text-success"></i><strong class="s-12 @settings('darkMode') text-white @else text-black @endsettings">Email</strong></br> <span class="s-12">{{$patients->email}}</span></li>
+                                    <li class="list-group-item"><i class="icon icon-address-card-o text-success"></i><strong class="s-12 @settings('darkMode') text-white @else text-black @endsettings">Address</strong></br> <span class="s-12">{{$patients->address}}</span></li>
                                 </ul>
                             </div>
                             <div class="card mt-3 mb-3">
                                 <div class="card-header @settings('darkMode') @else bg-white @endsettings">
-                                    <strong class="card-title">Appointments</strong>
+                                    <strong class="card-title @settings('darkMode') text-white @else text-black @endsettings">Appointments</strong>
                                 </div>
                                 <div>
                                     <ul class="list-group list-group-flush">
@@ -108,14 +114,14 @@
                                 <div class="col-md-6">
                                     <div class="card">
                                         <div class="card-header @settings('darkMode') @else bg-white @endsettings">
-                                            <h6>Patient Notes</h6>
+                                            <h6 class="@settings('darkMode') text-white @else text-black @endsettings">Patient Notes</h6>
                                             <a href="{{route('notes.create')}}?id={{$patients->id}}" class="btn-fab fab-right-bottom absolute btn-primary text-white shadow1"><i class="icon-add"></i></a>
                                         </div>
                                         <div class="card-body">
                                             <ul class="list-unstyled">
                                                 @if($notes->count() > 0)
                                                     @foreach($notes as $note)
-                                                    <li class="my-1">
+                                                    <li class="my-1 note-item">
                                                         <div class="card no-b p-3">
                                                             <div class="">
                                                                 <div class="float-right">
@@ -128,9 +134,9 @@
                                                                 </div>
                                                                 <div>
                                                                     <div>
-                                                                        <strong>Patient Notes for {{$note->date}}</strong>
+                                                                        <strong>Patient Notes for {{$note->created_at}}</strong>
                                                                     </div>
-                                                                    <small>Last Edit: {{\App\PatientNotes::getStaffName($note->created_by)}}</small>
+                                                                    <small>By: {{\App\PatientNotes::getStaffName($note->created_by)}} | Last Updated: {{$note->updated_at}}</small>
                                                                 </div>
                                                             </div>
                                                         </div>
