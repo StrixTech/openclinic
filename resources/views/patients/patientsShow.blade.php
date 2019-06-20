@@ -48,10 +48,11 @@
                             </div>
                         </div>
                     </div>
-                    <a href="{{route('patients.edit',$patients->id)}}" class="m-auto btn btn-primary" style="height: fit-content;"><i class="icon icon-pencil p-0"></i> </a>
-                    <a href="{{route('patients.destroy',$patients->id)}}" class="m-auto btn btn-primary" style="height: fit-content;"><i class="icon icon-delete p-0"></i> </a>
+                    <div class="col-1 r-3" style="background-color: #03a9f4; height: fit-content;">
+                        <a href="{{route('patients.edit',$patients->id)}}" class="r-0 btn btn-primary" style="height: fit-content;"><i class="icon icon-pencil p-0"></i> </a>
+                        <a href="{{route('patients.destroy',$patients->id)}}" class="r-0 btn btn-primary" style="height: fit-content;"><i class="icon icon-delete p-0"></i> </a>
+                    </div>
                 </div>
-
             </div>
         </div>
         <div class="container-fluid relative animatedParent animateOnce my-3">
@@ -124,17 +125,17 @@
                                                     <li class="my-1 note-item">
                                                         <div class="card no-b p-3">
                                                             <div class="">
-                                                                <div class="float-right">
-                                                                    <a href="#" data-id="{{$note->id}}" class="view-note btn-fab btn-fab-sm btn-primary r-5">
+                                                                <div class="float-right" style="">
+                                                                    <a href="#" data-id="{{$note->id}}" class="view-note btn @settings('darkMode') text-white @else text-black @endsettings r-0">
                                                                         <i class="icon-eye p-0"></i>
                                                                     </a>
-                                                                    <a href="#" class="btn-fab btn-fab-sm btn-success r-5">
+                                                                    <a href="#" class="btn @settings('darkMode') text-white @else text-black @endsettings r-0">
                                                                         <i class="icon-pencil p-0"></i>
                                                                     </a>
                                                                 </div>
                                                                 <div>
                                                                     <div>
-                                                                        <strong>Patient Notes for {{$note->created_at}}</strong>
+                                                                        <strong class="@settings('darkMode') text-white @else text-black @endsettings">Patient Notes for {{$note->created_at}}</strong>
                                                                     </div>
                                                                     <small>By: {{\App\PatientNotes::getStaffName($note->created_by)}} | Last Updated: {{$note->updated_at}}</small>
                                                                 </div>

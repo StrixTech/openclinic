@@ -1,8 +1,12 @@
-
+    <style>
+        .theme-dark .dark-side {
+            background-color: #111 !important;
+        }
+    </style>
     <aside class="main-sidebar fixed offcanvas b-r sidebar-tabs" data-toggle='offcanvas'>
         <div class="sidebar">
             <div class="d-flex hv-100 align-items-stretch">
-                <div class="@settings('darkMode') bg-black @else bg-blue @endsettings text-white">
+                <div class="@settings('darkMode') dark-side @else bg-blue @endsettings text-white">
                     <div class="nav mt-5 pt-5 flex-column nav-pills" id="v-pills-tab" role="tablist"
                          aria-orientation="vertical">
                         <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab"
@@ -57,7 +61,6 @@
                                 <ul class="treeview-menu">
                                     <li><a href="/admin" class="@settings('darkMode') text-white @else text-black @endsettings"><i class="icon icon-home"></i>Home</a></li>
                                     <li><a href="{{route('admin.settings')}}" class="@settings('darkMode') text-white @else text-black @endsettings"><i class="icon icon-cog"></i>Settings</a></li>
-                                    <li><a href="/admin/roles" class="@settings('darkMode') text-white @else text-black @endsettings"><i class="icon icon-folder5"></i>Roles</a></li>
                                     <li><a href="{{route('staff.index')}}" class="@settings('darkMode') text-white @else text-black @endsettings"><i class="icon icon-person"></i>Staff</a></li>
                                 </ul>
                             </li>

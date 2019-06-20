@@ -50,8 +50,8 @@
                         </div>
                         <div class="card-body p-0">
                             <div class="p-t-10 p-b-10 settings-box">
-                                <div class="icon-container">
-                                    <i class="fas fa-check-circle" style="width:24px;height: 24px;color:rgb(138,180,284);"></i>
+                                <div class="icon-container my-auto">
+                                    <i class="fas fa-check-circle" style="color:rgb(138,180,284);"></i>
                                 </div>
                                 <div class="message">
                                     <div id="updateStatusMessage">
