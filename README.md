@@ -4,6 +4,7 @@
 <a href="https://github.styleci.io/repos/115970413"><img src="https://github.styleci.io/repos/115970413/shield?branch=develop" alt="StyleCI"></a>
 <a href="https://github.com/StrixTech/openclinic/blob/develop/LICENSE"><img alt="GitHub license" src="https://img.shields.io/github/license/StrixTech/openclinic.svg?style=flat-square"></a>
 <a href="https://github.com/StrixTech/openclinic/releases"><img src="https://img.shields.io/github/release/StrixTech/openclinic.svg?style=flat-square" alt="Latest Stable Version"></a>
+<a href="https://openclinic.readme.io"><img src="https://img.shields.io/badge/readme.io-readme-blue.svg?style=flat-square" alt="readme"></a>
 </p>
 
 The solution for hospitals and clinics around the world
