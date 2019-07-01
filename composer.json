@@ -15,7 +15,7 @@
         "laravolt/avatar": "2.2.1",
         "nesbot/carbon": "2.19.2",
         "qcod/laravel-settings": "1.0.5",
-        "realrashid/sweet-alert": "1.1.2",
+        "realrashid/sweet-alert": "2.0",
         "spatie/laravel-permission": "2.37.0"
     },
     "require-dev": {
