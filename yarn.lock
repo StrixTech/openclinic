@@ -578,11 +578,7 @@
   version "4.3.0"
   resolved "https://registry.yarnpkg.com/@fullcalendar/core/-/core-4.3.0.tgz#e5e7287c28c6f8527ba08b48fcd407b27ee430c5"
 
-"@fullcalendar/daygrid@4.2.0":
-  version "4.2.0"
-  resolved "https://registry.yarnpkg.com/@fullcalendar/daygrid/-/daygrid-4.2.0.tgz#c49a9e27baf40b5a637a5d8fffa2670f19ed636b"
-
-"@fullcalendar/daygrid@~4.3.0":
+"@fullcalendar/daygrid@4.3.0", "@fullcalendar/daygrid@~4.3.0":
   version "4.3.0"
   resolved "https://registry.yarnpkg.com/@fullcalendar/daygrid/-/daygrid-4.3.0.tgz#1b4ab9fdc238dba77921cb7c5bd2d813c834e905"
 
