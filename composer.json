@@ -13,7 +13,7 @@
         "laravel/framework": "5.8.24",
         "laravel/tinker": "1.0.10",
         "laravolt/avatar": "2.2.1",
-        "nesbot/carbon": "2.23.0",
+        "nesbot/carbon": "2.23.1",
         "qcod/laravel-settings": "1.0.5",
         "realrashid/sweet-alert": "1.1.2",
         "spatie/laravel-permission": "2.37.0"
