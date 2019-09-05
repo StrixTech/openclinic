@@ -14,7 +14,7 @@
         "laravel/tinker": "1.0.10",
         "laravolt/avatar": "2.2.1",
         "nesbot/carbon": "2.23.1",
-        "qcod/laravel-settings": "1.0.5",
+        "qcod/laravel-settings": "1.0.7",
         "realrashid/sweet-alert": "1.1.2",
         "spatie/laravel-permission": "3.0"
     },

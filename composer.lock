@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3256379a8e7d5c3b230e960124aa0a46",
+    "content-hash": "1277a4e2ba581369b17175948cd9667b",
     "packages": [
         {
             "name": "danielstjules/stringy",
@@ -1647,26 +1647,26 @@
         },
         {
             "name": "qcod/laravel-settings",
-            "version": "1.0.5",
+            "version": "1.0.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/qcod/laravel-settings.git",
-                "reference": "42dacdc9ca5e8b9994dafb737be41a3f5ba3e5c5"
+                "reference": "d71ff19819f9751ac90c3c6d65d1ba116b210fec"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/qcod/laravel-settings/zipball/42dacdc9ca5e8b9994dafb737be41a3f5ba3e5c5",
-                "reference": "42dacdc9ca5e8b9994dafb737be41a3f5ba3e5c5",
+                "url": "https://api.github.com/repos/qcod/laravel-settings/zipball/d71ff19819f9751ac90c3c6d65d1ba116b210fec",
+                "reference": "d71ff19819f9751ac90c3c6d65d1ba116b210fec",
                 "shasum": ""
             },
             "require": {
-                "laravel/framework": "~5.4.0|~5.5.0|~5.6.0|~5.7.0|~5.8.0",
-                "php": ">=5.6.0"
+                "laravel/framework": "~5.4.0|~5.5.0|~5.6.0|~5.7.0|~5.8.0|^6.0",
+                "php": "^7.2"
             },
             "require-dev": {
                 "mockery/mockery": "^0.9.4 || ~1.0",
-                "orchestra/testbench": "~3.4",
-                "phpunit/phpunit": "~7.0"
+                "orchestra/testbench": "~3.4|^4.0",
+                "phpunit/phpunit": "^8.0"
             },
             "type": "library",
             "extra": {
@@ -1709,7 +1709,7 @@
                 "laravel",
                 "qcod"
             ],
-            "time": "2019-03-13T05:23:56+00:00"
+            "time": "2019-09-05T11:02:04+00:00"
         },
         {
             "name": "ralouphie/getallheaders",
@@ -3679,9 +3679,9 @@
             "authors": [
                 {
                     "name": "Marcel Pociot",
-                    "role": "Developer",
                     "email": "marcel@beyondco.de",
-                    "homepage": "https://beyondco.de"
+                    "homepage": "https://beyondco.de",
+                    "role": "Developer"
                 }
             ],
             "description": "Symfony Var-Dump Server for Laravel",
