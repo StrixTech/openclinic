@@ -5654,9 +5654,9 @@ trim-right@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/trim-right/-/trim-right-1.0.1.tgz#cb2e1203067e0c8de1f614094b9fe45704ea6003"
 
-trumbowyg@2.19.1:
-  version "2.19.1"
-  resolved "https://registry.yarnpkg.com/trumbowyg/-/trumbowyg-2.19.1.tgz#22b738b58902553d1b9633151756b356a6f1f2a6"
+trumbowyg@2.20.0:
+  version "2.20.0"
+  resolved "https://registry.yarnpkg.com/trumbowyg/-/trumbowyg-2.20.0.tgz#4418fc42d628d4763553e9bc97e4efd880113daf"
 
 tslib@^1.9.0:
   version "1.9.3"
