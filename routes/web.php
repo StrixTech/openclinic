@@ -11,10 +11,10 @@
 |
 */
 
-use App\User;
-use Illuminate\Http\Request;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PatientNotesController;
+use App\User;
+use Illuminate\Http\Request;
 
 Route::get('/', function () {
     return view('welcome');
