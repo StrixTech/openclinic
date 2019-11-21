@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3256379a8e7d5c3b230e960124aa0a46",
+    "content-hash": "1fba5f986e2f2752315adad79da7ac37",
     "packages": [
         {
             "name": "danielstjules/stringy",
@@ -1835,26 +1835,24 @@
         },
         {
             "name": "realrashid/sweet-alert",
-            "version": "v1.1.2",
+            "version": "v3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/realrashid/sweet-alert.git",
-                "reference": "7bd78445947ef8ce483412afbddb2dec7fc40eb0"
+                "reference": "45a99890c87dded920971fadaec40f709962cca2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/realrashid/sweet-alert/zipball/7bd78445947ef8ce483412afbddb2dec7fc40eb0",
-                "reference": "7bd78445947ef8ce483412afbddb2dec7fc40eb0",
+                "url": "https://api.github.com/repos/realrashid/sweet-alert/zipball/45a99890c87dded920971fadaec40f709962cca2",
+                "reference": "45a99890c87dded920971fadaec40f709962cca2",
                 "shasum": ""
             },
             "require": {
-                "illuminate/session": "~5.1",
-                "illuminate/support": "~5.1",
-                "php": "~5.6|~7.0"
+                "laravel/framework": "~5.4.0|~5.8.0|~5.9.0|^6.0",
+                "php": "^7.2"
             },
             "require-dev": {
-                "phpunit/phpunit": ">=5.4.3",
-                "squizlabs/php_codesniffer": "^2.3"
+                "symfony/thanks": "^1.0"
             },
             "type": "library",
             "extra": {
@@ -1869,7 +1867,7 @@
             },
             "autoload": {
                 "psr-4": {
-                    "RealRashid\\SweetAlert\\": "src"
+                    "RealRashid\\SweetAlert\\": "src/"
                 },
                 "files": [
                     "src/functions.php"
@@ -1882,22 +1880,24 @@
             "authors": [
                 {
                     "name": "Rashid Ali",
-                    "role": "Developer",
                     "email": "realrashid05@gmail.com",
-                    "homepage": "https://realrashid.com"
+                    "homepage": "https://realrashid.com",
+                    "role": "Developer"
                 }
             ],
-            "description": "SweetAlert2 for Laravel 5.5.* by Rashid Ali",
+            "description": "A BEAUTIFUL, RESPONSIVE, CUSTOMIZABLE, ACCESSIBLE (WAI-ARIA) REPLACEMENT FOR JAVASCRIPT'S POPUP BOXES FOR LARAVEL BY RASHID ALI",
             "homepage": "https://github.com/realrashid/sweet-alert",
             "keywords": [
                 "alert",
                 "laravel",
+                "laravel-package",
                 "notifier",
                 "noty",
-                "sweet",
-                "sweet-alert2"
+                "sweet-alert",
+                "sweet-alert2",
+                "toast"
             ],
-            "time": "2019-03-29T18:34:57+00:00"
+            "time": "2019-11-21T19:32:16+00:00"
         },
         {
             "name": "spatie/laravel-permission",
@@ -3378,8 +3378,8 @@
             "authors": [
                 {
                     "name": "Tijs Verkoyen",
-                    "role": "Developer",
-                    "email": "css_to_inline_styles@verkoyen.eu"
+                    "email": "css_to_inline_styles@verkoyen.eu",
+                    "role": "Developer"
                 }
             ],
             "description": "CssToInlineStyles is a class that enables you to convert HTML-pages/files into HTML-pages/files with inline styles. This is very useful when you're sending emails.",
@@ -3679,9 +3679,9 @@
             "authors": [
                 {
                     "name": "Marcel Pociot",
-                    "role": "Developer",
                     "email": "marcel@beyondco.de",
-                    "homepage": "https://beyondco.de"
+                    "homepage": "https://beyondco.de",
+                    "role": "Developer"
                 }
             ],
             "description": "Symfony Var-Dump Server for Laravel",
@@ -4095,8 +4095,8 @@
             "authors": [
                 {
                     "name": "Filipe Dobreira",
-                    "role": "Developer",
-                    "homepage": "https://github.com/filp"
+                    "homepage": "https://github.com/filp",
+                    "role": "Developer"
                 }
             ],
             "description": "php error handling for cool kids",
@@ -4551,18 +4551,18 @@
             "authors": [
                 {
                     "name": "Arne Blankerts",
-                    "role": "Developer",
-                    "email": "arne@blankerts.de"
+                    "email": "arne@blankerts.de",
+                    "role": "Developer"
                 },
                 {
                     "name": "Sebastian Heuer",
-                    "role": "Developer",
-                    "email": "sebastian@phpeople.de"
+                    "email": "sebastian@phpeople.de",
+                    "role": "Developer"
                 },
                 {
                     "name": "Sebastian Bergmann",
-                    "role": "Developer",
-                    "email": "sebastian@phpunit.de"
+                    "email": "sebastian@phpunit.de",
+                    "role": "Developer"
                 }
             ],
             "description": "Component for reading phar.io manifest information from a PHP Archive (PHAR)",
@@ -5908,8 +5908,8 @@
             "authors": [
                 {
                     "name": "Arne Blankerts",
-                    "role": "Developer",
-                    "email": "arne@blankerts.de"
+                    "email": "arne@blankerts.de",
+                    "role": "Developer"
                 }
             ],
             "description": "A small library for converting tokenized PHP source code into XML and potentially other formats",
