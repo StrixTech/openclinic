@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Patients;
 use App\Appointments;
 use App\PatientNotes;
+use App\Patients;
 use Illuminate\Http\Request;
 
 class PatientsController extends Controller
