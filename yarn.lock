@@ -1097,7 +1097,11 @@ bootstrap-tagsinput@0.7.1:
   version "0.7.1"
   resolved "https://registry.yarnpkg.com/bootstrap-tagsinput/-/bootstrap-tagsinput-0.7.1.tgz#ffe3b06bbe2a106945ef2814568005a94f211937"
 
-bootstrap@4.3.1, bootstrap@>=4.0, bootstrap@^4.0.0:
+bootstrap@4.4.0:
+  version "4.4.0"
+  resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-4.4.0.tgz#477103fa44d44191971c8ca3e0b51a85ae62ea4d"
+
+bootstrap@>=4.0, bootstrap@^4.0.0:
   version "4.3.1"
   resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-4.3.1.tgz#280ca8f610504d99d7b6b4bfc4b68cec601704ac"
 
