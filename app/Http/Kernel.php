@@ -2,8 +2,8 @@
 
 namespace App\Http;
 
-use RealRashid\SweetAlert\ToSweetAlert;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
+use RealRashid\SweetAlert\ToSweetAlert;
 
 class Kernel extends HttpKernel
 {
