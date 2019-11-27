@@ -11,7 +11,7 @@
         "php": "^7.1.3",
         "fideloper/proxy": "4.1.0",
         "laravel/framework": "5.8.34",
-        "laravel/tinker": "1.0.10",
+        "laravel/tinker": "2.0.0",
         "laravolt/avatar": "2.2.1",
         "nesbot/carbon": "2.23.1",
         "qcod/laravel-settings": "1.0.5",
