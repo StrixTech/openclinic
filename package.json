@@ -29,7 +29,7 @@
         "@fullcalendar/core": "4.3.1",
         "@fullcalendar/daygrid": "4.2.0",
         "@fullcalendar/timegrid": "4.3.0",
-        "bootstrap-colorpicker": "3.1.2",
+        "bootstrap-colorpicker": "3.2.0",
         "bootstrap-tagsinput": "0.7.1",
         "chart.js": "2.8.0",
         "datatables.net": "1.10.19",
