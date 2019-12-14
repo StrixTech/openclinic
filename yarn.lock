@@ -5512,9 +5512,9 @@ sweetalert@2.1.2:
     es6-object-assign "^1.1.0"
     promise-polyfill "^6.0.2"
 
-tablefilter@0.6.96:
-  version "0.6.96"
-  resolved "https://registry.yarnpkg.com/tablefilter/-/tablefilter-0.6.96.tgz#d554eb11b1b29afa660a7e79cf6c8bbe9d5b755c"
+tablefilter@0.6.105:
+  version "0.6.105"
+  resolved "https://registry.yarnpkg.com/tablefilter/-/tablefilter-0.6.105.tgz#840a8cf886e97ea5ff0c731c21563db7ae6c0c02"
 
 tapable@^1.0.0, tapable@^1.1.0:
   version "1.1.3"
