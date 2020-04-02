@@ -21,7 +21,7 @@
     "require-dev": {
         "barryvdh/laravel-debugbar": "3.2.7",
         "barryvdh/laravel-ide-helper": "2.6.2",
-        "beyondcode/laravel-dump-server": "1.3.0",
+        "beyondcode/laravel-dump-server": "1.4.0",
         "filp/whoops": "2.4.0",
         "fzaninotto/faker": "1.8.0",
         "mockery/mockery": "1.2.3",
