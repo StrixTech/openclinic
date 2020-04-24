@@ -20,7 +20,7 @@
         "lodash": "4.17.15",
         "popper.js": "1.16.1",
         "resolve-url-loader": "2.3.2",
-        "sass": "1.22.10",
+        "sass": "1.26.5",
         "sass-loader": "7.3.1",
         "vue": "2.6.10",
         "vue-template-compiler": "2.6.10"
