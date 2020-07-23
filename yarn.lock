@@ -5089,9 +5089,10 @@ schema-utils@^1.0.0:
     ajv-errors "^1.0.0"
     ajv-keywords "^3.1.0"
 
-scrollreveal@4.0.5:
-  version "4.0.5"
-  resolved "https://registry.yarnpkg.com/scrollreveal/-/scrollreveal-4.0.5.tgz#cf83cc5d9874dc0d92ef9c89a8894e57f3f8e034"
+scrollreveal@4.0.7:
+  version "4.0.7"
+  resolved "https://registry.yarnpkg.com/scrollreveal/-/scrollreveal-4.0.7.tgz#a1e1a969431ec3b1dc6c19d8d36ed8fd8cfe4412"
+  integrity sha512-49blVbHclANk8PP8T8cjoyqijgshxwkaLWz1qTCaj+7SxlzheLitQT8cWcKQxZSP/2mZ7uias8kr4AHgvf6gnQ==
   dependencies:
     miniraf "1.0.0"
     rematrix "0.3.0"
